@@ -1,0 +1,15 @@
+.bg-nav{
+    background-color: #FFB135;
+    position: fixed;
+    top:0;
+    z-index: 2;
+    width: 100%;
+    margin-bottom: 3vh;
+
+}
+
+.logo{
+    width: 6vh;
+    height: 6vh;
+    border-radius: 50%;
+}

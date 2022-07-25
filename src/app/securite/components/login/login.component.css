@@ -1,0 +1,21 @@
+.content{
+    margin-top: 8vh;
+    height:85vh;
+}
+
+.block-2{
+    height:100%;
+}
+
+.block-1{
+    height:100%;
+}
+
+.block-1 img{
+    width:60vh;
+    height:60vh;
+    border-radius:50%;
+    border:0.7vh solid #FFB135;
+}
+
+

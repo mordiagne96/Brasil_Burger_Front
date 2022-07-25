@@ -1,0 +1,150 @@
+.content{
+    width: 100%;
+    height: 82vh;
+    /* background-color: rgb(238, 234, 234); */
+    margin-top:8vh;
+    border-bottom: 0.5vh solid #FFB135;
+
+    
+}
+
+.block-1{
+    width:40%;
+    height:100%;
+}
+
+.block-2{
+    width:60%;
+    height: 100%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    gap: 1vh;
+}
+
+.block-1 img{
+    width: 60vh;
+    height:60vh;
+    border: 0.3vh solid #FFB135;
+    border-radius: 4vh;
+}
+
+.block-2 .info-1{
+    width:100%;
+    height:10%;
+    /* background-color:rgb(233, 220, 220); */
+}
+
+.block-2 .info-2{
+    width:100%;
+    height:75%;
+    border: 0.5vh solid #FFB135;
+    border-radius: 1vh;
+    padding: 1vh;
+    gap: 0.5vh;
+}
+
+.block-2 .info-3{
+    width:100%;
+    height:15%;
+    border: 0.5vh solid #FFB135;
+    border-radius: 1vh;
+    padding: 1vh;
+    gap: 0.5vh;
+}
+
+.nom-menu{
+    font-size: 4vh;
+    font-weight: bold;
+}
+
+.prix-menu{
+    font-size: 4vh;
+    font-weight: bold;
+    background-color: #2ECC71;
+    width:30vh;
+    text-align: center;
+    padding: 1vh;
+    color: white;
+    border-radius: 1vh;
+}
+
+.info-2 .det-burger{
+    width:55%;
+    height:100%;
+    background-color:white;
+    overflow-y:scroll;
+}
+
+.info-2 .det-boisson{
+    width:45%;
+    height:100%;
+    /* overflow-y:scroll; */
+    position: relative;
+}
+
+.det-1{
+    height: 15%;
+    width: 100%;
+    border-bottom: 0.2vh solid #FFB135;
+    position: sticky;
+    background-color:#FFB135 ;
+    padding-left:2vh;
+    padding-top:1vh;
+}
+.det-1 label{
+    font-size:2vh;
+}
+.det-2{
+    height: 85%;
+    width: 100%;
+    overflow-y:scroll;
+}
+.quantite{
+    height:4vh;
+    width: 15vh;
+    bottom:0;
+    right: 0;
+    margin-right: 0vh;
+    margin-bottom: 4vh;
+    display: flex;
+    align-items: center;
+    gap:0.2vh;
+}
+
+.quantite i{
+    font-size: 2vh;
+
+}
+.quantite input{
+    width: 5vh;
+    height:auto;
+    border: 0.2px solid #FFB135;
+}
+
+.quantite button{
+    width:4vh;
+    height:auto;
+    padding-top: 0.5vh;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border: 0.2vh solid #FFB135;
+}
+
+
+.btn-panier{
+    height: 5vh;
+    width: 100%;
+    border-radius: 1vh;
+    /* background-color: #2ECC71; */
+    background-color: #2ECC71;
+    color: white;
+    font-size: 2vh;
+    font-weight: 600;
+    border: 0.1vh solid #FFB135;
+}
+
+.btn-panier:hover{
+    background-color: #FFB135;
+    color: white;
+}
