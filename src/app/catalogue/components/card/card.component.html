@@ -1,8 +1,8 @@
     <div class="card text-start card-cat">
         <img class="card-img-top" src="../../../../assets/images/amirali-mirhashemian-9Bqiusimq6M-unsplash.jpg" alt="Title">
         <div class="card-body">
-            <button class="btn-ajout" (click)="myFunction()" >Ajouter</button>
-            <!-- <button class="btn-ajout"  routeLink="/catalogue/details/Menu" >Ajouter</button> -->
+            <button class="btn-ajout" (click)="myFunction()" *ngIf="show_btn_Add_burger"  >Ajouter</button>
+            <button class="btn-ajout" *ngIf="show_btn_Add_menu"  routerLink="/catalogue/details-menu/2" >Ajouter</button>
         </div>
         <span class="nom-produit">Crispy Chicken</span>
         <span class="prix-produit">5000 XOF</span>

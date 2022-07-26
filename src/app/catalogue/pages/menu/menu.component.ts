@@ -8,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class MenuComponent implements OnInit {
 
   constructor() { }
-
+  show_btn_Add_burger = false;
+  show_btn_Add_menu = true;
   ngOnInit(): void {
+    
   }
 
 }
