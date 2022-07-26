@@ -5,6 +5,7 @@
     z-index: 2;
     width: 100%;
     margin-bottom: 3vh;
+    padding:0.2vh;
 
 }
 
@@ -12,4 +13,54 @@
     width: 6vh;
     height: 6vh;
     border-radius: 50%;
+}
+
+.block-menu button{
+    width:30vh;
+    background-color:transparent;
+    height:100%;font-size:2vh;
+    color: white;
+    border:0.1vh solid white;
+    font-weight:bold;
+
+}
+.block-menu button:hover{
+    width:30vh;
+    height:100%;font-size:2.2vh;
+    /* background-color:#F6F5F5; */
+    background: rgb(242,246,246);
+background: linear-gradient(322deg, rgba(242,246,246,0.8071603641456583) 0%, rgba(242,236,230,0.6699054621848739) 0%);
+
+}
+
+.block-menu{
+    width:40%;
+    height:100%;
+}
+
+.div-nav{
+    width:100%;
+    height:8vh;
+}
+
+.block-img{
+    width:15%;
+}
+
+.block-user{
+    width:15%;
+}
+
+.block-logout{
+    width:10%;
+    height:100%;
+
+}
+
+.block-logout button{
+    width:25vh;
+    height:70%;
+    background-color:#E74C3C;
+    color:white;
+    border-radius:2vh;
 }

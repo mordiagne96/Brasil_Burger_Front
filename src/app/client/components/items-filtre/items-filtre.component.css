@@ -1,0 +1,15 @@
+.block-filter{
+    width:100%;
+    height:5vh;
+    font-size: 2vh;
+    font-weight:bold;
+}
+
+select, input{
+    width:30vh;
+    height: 3vh;
+    border:0.3vh solid #FFB135;
+    border-radius:2vh;
+    font-size:2vh;
+}
+

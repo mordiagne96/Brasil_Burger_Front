@@ -5,8 +5,8 @@ import { SecuriteRoutingModule } from './securite-routing.module';
 import { SecuriteComponent } from './securite.component';
 import { FormLoginComponent } from './components/form-login/form-login.component';
 import { FormRegistreComponent } from './components/form-registre/form-registre.component';
-import { LoginComponent } from './components/login/login.component';
-import { RegistreComponent } from './components/registre/registre.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegistreComponent } from './pages/registre/registre.component';
 import { HeadComponent } from './components/head/head.component';
 import { FootComponent } from './components/foot/foot.component';
 

@@ -12,12 +12,16 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { CardComponent } from './components/card/card.component';
 import { DetailBurgerComponent } from './components/detail-burger/detail-burger.component';
-import { DetailMenuComponent } from './components/detail-menu/detail-menu.component';
-import { PanierComponent } from './components/panier/panier.component';
+import { DetailMenuComponent } from './pages/detail-menu/detail-menu.component';
+import { PanierComponent } from './pages/panier/panier.component';
 import { CardProduitComponent } from './components/card-produit/card-produit.component';
 import { CardTailleComponent } from './components/card-taille/card-taille.component';
 import { CardBoissonComponent } from './components/card-boisson/card-boisson.component';
 import { CardProduitCommandeComponent } from './components/card-produit-commande/card-produit-commande.component';
+import { MenuComponent } from './pages/menu/menu.component';
+import { BurgersComponent } from './pages/burgers/burgers.component';
+import { BoissonsComponent } from './pages/boissons/boissons.component';
+import { FritesComponent } from './pages/frites/frites.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,11 @@ import { CardProduitCommandeComponent } from './components/card-produit-commande
     CardProduitComponent,
     CardTailleComponent,
     CardBoissonComponent,
-    CardProduitCommandeComponent
+    CardProduitCommandeComponent,
+    MenuComponent,
+    BurgersComponent,
+    BoissonsComponent,
+    FritesComponent
   ],
   imports: [
     CommonModule,
@@ -41,6 +49,9 @@ import { CardProduitCommandeComponent } from './components/card-produit-commande
     MatSliderModule,
     MatButtonModule,
     MatIconModule
+  ],
+  exports: [
+    HeaderComponent,
   ]
 })
 export class CatalogueModule { }

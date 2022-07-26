@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-detail-burger',
@@ -9,7 +9,12 @@ export class DetailBurgerComponent implements OnInit {
 
   constructor() { }
 
+  @Output() closeDetail = new EventEmitter<any>();
+  bookTitle: string = "detail-burger";
   ngOnInit(): void {
   }
 
+  close(){
+    this.closeDetail.emit({ title: this.bookTitle });
+  }
 }

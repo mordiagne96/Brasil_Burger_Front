@@ -1,0 +1,24 @@
+<app-header></app-header>
+<app-slide></app-slide>
+<app-smd-option></app-smd-option>
+
+    <div class="diviseur"></div>
+    <app-detail-burger *ngIf="visible" (closeDetail)="closeDetail($event)"></app-detail-burger>
+    <div class="d-flex justify-content-center p-4 flex-wrap gap-4">
+            <app-card (showDetail)=onBookAdded($event)></app-card>
+            <app-card (showDetail)=onBookAdded($event)></app-card>
+            <app-card (showDetail)=onBookAdded($event)></app-card>
+            <app-card (showDetail)=onBookAdded($event)></app-card>
+            <app-card></app-card>
+            <app-card></app-card>
+            <app-card></app-card>
+            <app-card></app-card>
+            <app-card></app-card>
+            <app-card></app-card>
+            <app-card></app-card>
+            <app-card></app-card>
+    </div>
+    <div class="d-flex flex-column align-items-center">
+        <button class="btn-plus">Afficher Plus</button>
+    </div>
+<app-footer></app-footer>

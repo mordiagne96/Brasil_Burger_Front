@@ -1,6 +1,19 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-nav">
-    <div class="container ">
+    <div class="div-nav w-full d-flex align-items-center">
          <!-- <a class="navbar-brand" href="#">Navbar</a> -->
-         <img src="././././assets/images/logo.png" class="logo" alt="">
+         <div class="block-img">
+             <img src="././././assets/images/logo.png" class="logo" alt="">
+         </div>
+         <div class="block-menu d-flex align-items-content gap-1">
+                <button routerLink="/catalogue/burgers">Catalogue</button>
+                <button routerLink="/client/liste-commandes">Mes Commandes</button>
+         </div>
+         <div class="block-user d-flex align-items-center gap-2">
+            <img src="././././assets/images/user.jpg" class="logo" alt="">
+            <span class="text-xl">Moustapha Koni</span>
+         </div>
+         <div class="block-logout d-flex align-items-center">
+            <button class="text-xl fw-bold text-white" routerLink="/catalogue/burgers">Déconnexion</button>
+         </div>
     </div>
 </nav>

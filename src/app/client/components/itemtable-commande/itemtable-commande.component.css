@@ -1,0 +1,14 @@
+.css-a{
+    border:0.2vh solid #FFB135;
+    color: #FFB135;
+    background-color:white;
+}
+
+.active{
+    background-color:#FFB135;
+    color:white;
+}
+
+.css-a:hover{
+    background-color:#F6F5F5;
+}

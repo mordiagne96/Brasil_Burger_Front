@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-card',
@@ -8,8 +8,16 @@ import { Component, OnInit } from '@angular/core';
 export class CardComponent implements OnInit {
 
   constructor() { }
-
+  visible=false;
+  bookTitle: string = "detail";
   ngOnInit(): void {
   }
-
+  @Output() showDetail = new EventEmitter<any>();
+  
+  
+  myFunction() {
+    this.showDetail.emit({ title: this.bookTitle });
+    // this.visible = true;
+    // alert("ok")
+  }
 }
