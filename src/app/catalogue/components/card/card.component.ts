@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Produit } from '../../shared/models/produit';
 
 @Component({
   selector: 'app-card',
@@ -14,6 +15,8 @@ export class CardComponent implements OnInit {
   @Output() showDetail = new EventEmitter<any>();
   @Input('show') show_btn_Add_burger : Boolean =false;
   @Input('show-menu') show_btn_Add_menu : Boolean =false;
+  @Input('catalogue_burger') burger : Produit|null = null;
+
   ngOnInit(): void {
   }
   myFunction() {

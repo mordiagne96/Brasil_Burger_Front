@@ -8,6 +8,7 @@ import {MatBadgeModule} from '@angular/material/badge';
 import { CatalogueModule } from './catalogue/catalogue.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule, HttpClient } from "@angular/common/http";
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatBadgeModule
+    MatBadgeModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
