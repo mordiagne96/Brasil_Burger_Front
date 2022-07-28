@@ -3,11 +3,11 @@
 <app-smd-option></app-smd-option>
 
     <div class="diviseur"></div>
-    <app-detail-burger *ngIf="visible" (closeDetail)="closeDetail($event)"></app-detail-burger>
+    <app-detail-burger *ngIf="visible" (closeDetail)="closeDetail()"></app-detail-burger>
     <div class="d-flex justify-content-center p-4 flex-wrap gap-4">
             <!-- {{burger.nom}} -->
             <div class="card text-start card-cat"  *ngFor="let produit of produits">
-                <app-card (showDetail)=onBookAdded($event)  [catalogue_burger]="produit" [show]="show_btn_Add_burger" ></app-card>
+                <app-card (showDetail)=showDetail()  [catalogue_burger]="produit" [show]="show_btn_Add_burger" ></app-card>
             </div>
 
             <!-- <span>{{ burger.nom }}</span> -->

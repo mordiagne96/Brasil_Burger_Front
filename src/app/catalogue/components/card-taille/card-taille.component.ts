@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Taille } from '../../shared/models/taille';
 
 @Component({
   selector: 'app-card-taille',
@@ -8,6 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class CardTailleComponent implements OnInit {
 
   constructor() { }
+
+  @Input() taille:Taille|null=null;
+  @Input() quantite:number=0;
 
   ngOnInit(): void {
   }

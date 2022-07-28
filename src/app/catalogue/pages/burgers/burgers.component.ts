@@ -22,29 +22,39 @@ export class BurgersComponent implements OnInit {
   show_btn_Add_burger = true;
   show_btn_Add_menu = false;
   produits:Produit[]=[];
-  @Input() item = ''; 
+  // @Input() item = ''; 
 
   ngOnInit(): void {
     this.href = this.router.url;
-    let array= this.href.split("/");
+    // let array= this.href.split("/");
 
-   this.service.all().subscribe(data=>{
-        this.produits = data[0].burgers;
-        this.produits.map(
-          produit=>{
-            produit.imageReelle = "data:image/png;base64,"+produit.image
-          }
-        )
-    });
+  //  this.service.all().subscribe(data=>{
+  //       this.produits = data[0].burgers;
+  //       this.produits.map(
+  //         produit=>{
+  //           produit.imageReelle = "data:image/png;base64,"+produit.image
+  //         }
+  //       )
+  //   });
+
+  this.service.all().subscribe(data=>{
+    this.produits = data[0].burgers;
+    this.produits.map(
+      produit=>{
+        produit.imageReelle = "data:image/png;base64,"+produit.image
+      }
+    )
+});
 
   }
 
-  onBookAdded(eventData: { detail: string }) {
+  showDetail() {
       // alert("parent")
+      // alert(detail);
       this.visible = true;
   }
 
-  closeDetail(eventData: { detail: string }) {
+  closeDetail() {
       // alert("close")
       this.visible = false;
 

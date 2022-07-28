@@ -1,30 +1,36 @@
-<app-header></app-header>
+<ng-container *ngIf="(menu | async) as menu">
 
+
+<app-header></app-header>
 <div class="content d-flex align-items-center gap-3">
+
     <div class="block-1 d-flex flex-column align-items-center justify-content-center gap-4">
-        <span class="nom-menu">Super Menu Bongo Man</span>
-        <img src="../../../../assets/images/amirali-mirhashemian-j-MPEwH9LM4-unsplash.jpg" alt="">
-        <span class="prix-menu">25 000 XOF</span>
+        <span class="nom-menu">{{ menu.nom}}</span>
+        <!-- <img src="../../../../assets/images/amirali-mirhashemian-j-MPEwH9LM4-unsplash.jpg" alt=""> -->
+        <img src="data:image/png;base64,{{menu.image}}" alt="">
+        
+        <span class="prix-menu">{{ menu.prix }}</span>
     </div>
     <div class="block-2 d-flex flex-column align-items-center justify-content-center">
         <div class="info-1 quantite">
             <button><i class="bi bi-dash-square-fill"></i></button> <input type="number" name="" min="0" value="0" id=""><button><i class="bi bi-plus-square-fill"></i></button>
+            <!-- {{ }} -->
+            <!-- {{ ((menu | async)?.portionFrite)}} -->
         </div>
         <div class="info-2 d-flex align-items-center justify-content-center">
             <div class="det-burger">
                 <h4>Burgers</h4>
-                <div class="d-flex flex-column gap-1">
-                    <app-card-produit></app-card-produit>
-                    <app-card-produit></app-card-produit>
+                <div class="d-flex flex-column gap-1" *ngFor="let menuBurger of menu.burgerMenus">
+                   <app-card-produit [burger]="menuBurger.burger" [quantite]="menuBurger.quantite"></app-card-produit>
                 </div>
                 <h4 class="mt-2">Frites</h4>
                 <div class="d-flex flex-column gap-1">
-                    <app-card-produit></app-card-produit>
+                    <app-card-produit [burger]="menu.portionFrite"></app-card-produit>
                 </div>
                 <h4 class="mt-2">Tailles</h4>
-                <div class="d-flex flex-column gap-1">
-                    <app-card-taille></app-card-taille>
-                    <app-card-taille></app-card-taille>
+                <div class="d-flex flex-column gap-1" *ngFor="let menuTaille of menu.tailleMenus">
+                    <app-card-taille [taille]="menuTaille.taille" [quantite]="menuTaille.quantite"></app-card-taille>
+                    <!-- <app-card-taille></app-card-taille> -->
                 </div>
             </div>
             <div class="det-boisson d-flex align-content-start flex-wrap gap-1">
@@ -70,3 +76,5 @@
     <app-card [show-menu]="show_btn_Add_menu"></app-card>
     <app-card [show-menu]="show_btn_Add_menu"></app-card>
 </div>
+
+</ng-container>

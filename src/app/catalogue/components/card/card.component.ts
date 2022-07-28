@@ -10,7 +10,7 @@ export class CardComponent implements OnInit {
 
   constructor() { }
   visible=false;
-  bookTitle: string = "detail";
+  data: string = "detail";
   
   @Output() showDetail = new EventEmitter<any>();
   @Input('show') show_btn_Add_burger : Boolean =false;
@@ -20,7 +20,7 @@ export class CardComponent implements OnInit {
   ngOnInit(): void {
   }
   myFunction() {
-    this.showDetail.emit({ title: this.bookTitle });
+    this.showDetail.emit();
     // this.visible = true;
     // alert("ok")
   }

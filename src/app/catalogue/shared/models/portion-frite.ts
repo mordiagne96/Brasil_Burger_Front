@@ -1,0 +1,2 @@
+export interface PortionFrite {
+}
