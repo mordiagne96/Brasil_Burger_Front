@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-nav">
+    <div class="div-nav w-full d-flex align-items-center">
+         <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+         <div class="block-img">
+             <img src="././././assets/images/logo.png" class="logo" alt="">
+         </div>
+         <div class="block-menu d-flex align-items-content gap-1">
+                <button routerLink="/catalogue" [queryParams]="{ catalogue: 'burgers' }" >Catalogue</button>
+                <button routerLink="/commandes/liste-commandes">Mes Commandes</button>
+         </div>
+         <div class="block-user d-flex align-items-center gap-2">
+            <img src="././././assets/images/user.jpg" class="logo" alt="">
+            <span class="text-xl">Moustapha Koni</span>
+         </div>
+         <div class="block-logout d-flex align-items-center justify-content-between pl-10 pr-10">
+            <app-panier-logo [nbre]="nbre"></app-panier-logo>
+            <button class="text-xl fw-bold text-white" routerLink="/catalogue/burgers">Déconnexion</button>
+         </div>
+    </div>
+</nav>

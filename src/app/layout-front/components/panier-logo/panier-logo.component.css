@@ -1,0 +1,20 @@
+.panier{
+    font-size: 2vh;
+    text-decoration: none;
+}
+
+.panier i{
+    font-size: 5vh;
+    color: white;
+
+}
+.panier span{
+    font-size: 1.5vh;
+    /* background-color: #2ECC71; */
+    padding-left: 1vh;
+    padding-right: 1vh;
+    border-radius: 1vh;
+    color: white;
+    border: 1px solid white;
+    font-weight: bold;
+}

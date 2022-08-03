@@ -1,0 +1,73 @@
+<ng-container *ngIf="(detailMenu | async) as detailMenu">
+
+
+<app-header></app-header>
+<div class="content d-flex align-items-center gap-3">
+        <!-- {{ menu.boissons|json }} -->
+    <div class="block-1 d-flex flex-column align-items-center justify-content-center gap-4">
+        <span class="nom-menu">{{ detailMenu.menu.nom}}</span>
+        <!-- <img src="../../../../assets/images/amirali-mirhashemian-j-MPEwH9LM4-unsplash.jpg" alt=""> -->
+        <img src="data:image/png;base64,{{detailMenu.menu.image}}" alt="">
+        
+        <span class="prix-menu">{{ detailMenu.menu.prix }} XOF</span>
+    </div>
+    <div class="block-2 d-flex flex-column align-items-center justify-content-center">
+        <div class="info-1 quantite ">
+            <button><i class="bi bi-dash-square-fill"></i></button> <input type="number" name="" min="1" value="1" #quantiteMenu><button><i class="bi bi-plus-square-fill"></i></button>
+            <div class="alert alert-danger w-3/4" *ngIf="erreur" role="alert">
+                <strong>{{messageErreur}}</strong>
+            </div> 
+        </div>
+        <div class="info-2 d-flex align-items-center justify-content-center">
+            <div class="det-burger">
+                <h4>Burgers</h4>
+                <div class="d-flex flex-column gap-1" *ngFor="let menuBurger of detailMenu.menu.burgerMenus">
+                   <app-card-produit [burger]="menuBurger.burger" [quantite]="menuBurger.quantite"></app-card-produit>
+                </div>
+                <h4 class="mt-2">Frites</h4>
+                <div class="d-flex flex-column gap-1">
+                    <app-card-produit [burger]="detailMenu.menu.portionFrite"></app-card-produit>
+                </div>
+                <h4 class="mt-2">Tailles</h4>
+                <div class="d-flex flex-column gap-1" *ngFor="let menuTaille of detailMenu.menu.tailleMenus">
+                    <app-card-taille [taille]="menuTaille.taille" [quantite]="menuTaille.quantite"></app-card-taille>
+                </div>
+            </div>
+            <div class="det-boisson d-flex align-content-start flex-wrap gap-1">
+                <div class="det-1 d-flex align-content-start flex-wrap gap-1">
+                    <div class="form-check" *ngFor="let menuTaille of detailMenu.menu.tailleMenus">
+                        <app-card-check (getBoissonBy)="getBoissonBy($event)" [tailleboissons]="menuTaille.taille.tailleBoissons" [taille]="menuTaille.taille"></app-card-check>
+                    </div>
+                </div>
+                <div class="det-2 d-flex align-content-start flex-wrap gap-1">
+                    <ng-container *ngFor="let tb of tailleBoissons">
+                                    <div class="card card-boisson d-flex flex-column align-items-center">
+                                        <app-card-boisson (UnChoixBoisson)="UnChoixBoisson($event)" (choixBoisson)="choixBoisson($event)" [check]="tb.check" [qteCheck]="tb.qteCheck" [taille]="taille" [boisson]="tb.boisson" [tailleId]="tailleId"></app-card-boisson>
+                                    </div>
+                    </ng-container>
+                    <!-- <ng-container *ngFor="let menuTaille of detailMenu.menu.tailleMenus">
+                        <ng-container *ngFor="let tb of menuTaille.taille.tailleBoissons">
+                            <ng-container *ngIf="tb.stock==1;then showB"></ng-container>
+                                <ng-template #showB>
+                                    <div class="card card-boisson d-flex flex-column align-items-center">
+                                        <app-card-boisson (choixBoisson)="choixBoisson($event)" [taille]="taille" [boisson]="tb.boisson" [tailleId]="tailleId" *ngIf="tb.stock==1"></app-card-boisson>
+                                    </div>
+                                </ng-template>
+                        </ng-container>
+                    </ng-container> -->
+
+                </div>
+
+            </div>
+        </div>
+        <div class="info-3 d-flex align-items-center justify-content-center">
+            <button class="btn-panier btn btn bg-success" [disabled]="btnAddActive" (click)="addProduit($event)" >Ajouter au Panier</button>
+        </div>
+    </div>
+</div>
+
+<div class="d-flex justify-content-center p-4 flex-wrap gap-4">
+  
+</div>
+
+</ng-container>

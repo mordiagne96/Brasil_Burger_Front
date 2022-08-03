@@ -1,0 +1,10 @@
+    <div class="card text-start card-cat">
+        <!-- <img class="card-img-top" src="../../../../assets/images/amirali-mirhashemian-9Bqiusimq6M-unsplash.jpg" alt="Title"> -->
+        <img class="card-img-top" [src]="burger?.imageReelle" alt="Title">
+        <div class="card-body">
+            <button class="btn-ajout" (click)="myFunction()" *ngIf="show_btn_Add_burger">Ajouter</button>
+            <button class="btn-ajout" *ngIf="show_btn_Add_menu"  routerLink="/catalogue/details-menu/{{burger?.id}}">Ajouter</button>
+        </div>
+        <span class="nom-produit">{{burger?.nom}}</span>
+        <span class="prix-produit">{{burger?.prix}}</span>
+    </div>

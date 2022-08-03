@@ -1,0 +1,78 @@
+<app-header></app-header>
+
+<div class="container-fluid content d-flex align-items-start gap-5">
+    <div class="block-1 d-flex flex-column align-items-start p-lg-4 gap-2">
+        <ng-container *ngFor="let menu of menus">
+            <app-card-produit-commande [produit]="menu.menu" [quantite]="menu.quantite" ></app-card-produit-commande>
+        </ng-container>
+        <ng-container *ngFor="let burger of burgers">
+            <app-card-produit-commande [produit]="burger.burger" [quantite]="burger.quantite"></app-card-produit-commande>
+        </ng-container>
+        <!-- <div class="div-detail col-md-12 d-flex bg-white align-items-center justify-content-between gap-2 position-relative">
+            <div class="div-img d-flex align-items-center justify-content-center"><img src="" alt=""></div>
+            <div class="div-nom d-flex align-items-center justify-content-start"><h4>DLKJJDDSJL</h4> </div>
+            <div class="div-qte d-flex align-items-center justify-content-center"><span>2</span></div>
+            <div class="div-prix d-flex align-items-center justify-content-center"><span>1500</span></div>
+            <button class="top-0 position-absolute right-1 fs-5 text-red-600"><i class="bi bi-x-circle-fill"></i></button>
+        </div> -->
+    </div>
+
+    <div class="block-2 p-4 d-flex flex-column gap-2 ">
+        <div class="w-full border-y-white h-14 d-flex align-items-center bg-white pl-2 gap-2">
+            <span class="text-3xl">Montant Total: </span><span class="text-4xl fw-bold">{{prixTotale}}</span>
+        </div>
+        <div class="w-full border-y-white h-14 d-flex align-items-center bg-white pl-2 gap-2">
+            <span class="text-3xl fw-bold">Type de Livraison</span>
+        </div>
+        <div class="w-full border-y-white h-14 d-flex align-items-center bg-white pl-10 gap-2">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label text-xl" for="flexRadioDefault1">
+                  Sur Place
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input fw-bold" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+                <label class="form-check-label text-xl" for="flexRadioDefault1">
+                  A Livrer
+                </label>
+            </div>
+        </div>
+        <div class="w-full border-y-white h-14 d-flex align-items-cente pl-10 gap-2">
+            <div class="d-flex align-items-center gap-2">
+                <label class="text-xl fw-bold">Téléphone: </label>
+                <input type="text" class="h-10" >
+            </div>
+            <div class="d-flex align-items-center gap-2">
+                <label class="text-xl fw-bold">Email: </label>
+                <input type="text" class="h-10" >
+            </div>
+        </div>
+        <div class="w-full border-y-white h-14 d-flex align-items-center  pl-10 gap-2">
+            <div class="d-flex align-items-center gap-2">
+                <label class="text-xl fw-bold">Zone: </label>
+               <select name="" id="" class="h-10 bg-white border-2">
+                    <option>Selectionner une zone</option>
+                    <option value="">Zone A: Liberté 1, Liberté 2, Liberté 3, Liberté 4</option>
+                    <option value="">Zone B: Pikine, Guédiawaye, Parcelle</option>
+               </select>
+            </div>
+        </div>
+        <div class="w-full border-y-white h-14 d-flex align-items-center  pl-10 gap-2">
+            <button type="button" class="btn btn-success btn-lg">Valider La Commande</button>
+            <button type="button" class="btn btn-warning btn-lg">Annuler</button>
+        </div>
+        <!-- <div class="w-full border-y-white h-14 d-flex align-items-center justify-content-between pl-5  gap-2">
+            <div class="d-flex align-items-center gap-2">
+                <label class="text-xl fw-bold">Téléphone: </label>
+                <input type="text" class="h-10" >
+            </div>
+            <div class="d-flex align-items-center gap-2">
+                <label class="text-xl fw-bold">Email: </label>
+                <input type="text" class="h-10" >
+            </div>
+        <div> -->
+        
+    </div>
+    
+</div>

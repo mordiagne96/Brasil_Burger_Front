@@ -1,0 +1,9 @@
+<div class="card card-boisson d-flex flex-column align-items-center">
+  <!-- {{ boisson?.id }} -->
+    <input type="checkbox" name="check-boisson" #idBoisson value="{{ boisson?.id }}" [checked]="check"  (change)="onChecked($event)">
+    <input type="number" min="0" (keyup)="onChecked($event)" (change)="onChecked($event)" [value]="check? qteCheck: 1" #idQuantite>
+  <img class="card-img-top" src="data:image/png;base64,{{boisson?.image}}" alt="Title">
+  <div class="card-body d-flex align-items-center justify-content-center">
+    <h4 class="card-title">{{boisson?.nom}}</h4>
+  </div>
+</div>
