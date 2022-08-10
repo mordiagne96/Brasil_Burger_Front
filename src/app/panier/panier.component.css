@@ -3,7 +3,7 @@
     width: 100%;
     /* background-color: rgb(234, 234, 234); */
     padding:5vh;
-    margin-top: 8vh;
+    padding-top: 10vh;
 }
 
 .block-2{
@@ -82,3 +82,4 @@
     color: white;
     border-radius:2vh;
 }
+

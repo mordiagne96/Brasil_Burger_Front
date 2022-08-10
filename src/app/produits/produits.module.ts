@@ -8,7 +8,6 @@ import { SmdOptionComponent } from './components/smd-option/smd-option.component
 import { CardComponent } from './components/card/card.component';
 import { DetailBurgerComponent } from './components/detail-burger/detail-burger.component';
 import { DetailMenuComponent } from './pages/detail-menu/detail-menu.component';
-import { PanierComponent } from './pages/panier/panier.component';
 import { CardProduitComponent } from './components/card-produit/card-produit.component';
 import { CardProduitCommandeComponent } from './components/card-produit-commande/card-produit-commande.component';
 import { CardBoissonComponent } from './components/card-boisson/card-boisson.component';
@@ -18,6 +17,7 @@ import { FritesComponent } from './pages/frites/frites.component';
 import { CatalogueComponent } from './pages/catalogue/catalogue.component';
 import { CardCheckComponent } from './components/card-check/card-check.component';
 import { LayoutFrontModule } from '../layout-front/layout-front.module';
+import { CardComplementComponent } from './components/card-complement/card-complement.component';
 
 
 @NgModule({
@@ -28,7 +28,6 @@ import { LayoutFrontModule } from '../layout-front/layout-front.module';
     CardComponent,
     DetailBurgerComponent,
     DetailMenuComponent,
-    PanierComponent,
     CardProduitComponent,
     CardTailleComponent,
     CardBoissonComponent,
@@ -36,7 +35,8 @@ import { LayoutFrontModule } from '../layout-front/layout-front.module';
     BoissonsComponent,
     FritesComponent,
     CatalogueComponent,
-    CardCheckComponent
+    CardCheckComponent,
+    CardComplementComponent
   ],
   imports: [
     CommonModule,

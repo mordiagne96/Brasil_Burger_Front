@@ -1,6 +1,6 @@
 .disable{
     color: gray;
-    cursor: not-allowed;
+    /* cursor: not-allowed; */
     opacity: 0.5;
     text-decoration: none;
 }
@@ -34,4 +34,9 @@
 
 .option .active{
     color: #FFB135;
+}
+
+.div-menu1{
+    position:sticky;
+    top:0
 }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { SecuriteRoutingModule } from './securite-routing.module';
 import { SecuriteComponent } from './securite.component';
@@ -23,7 +24,8 @@ import { FootComponent } from './components/foot/foot.component';
   ],
   imports: [
     CommonModule,
-    SecuriteRoutingModule
+    SecuriteRoutingModule,
+    FormsModule
   ]
 })
 export class SecuriteModule { }

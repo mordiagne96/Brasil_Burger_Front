@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "~bootstrap-icons/font/bootstrap-icons.css";
+@import "~angular-notifier/styles.css";
+@import "~angular-notifier/styles/core.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,6 +11,35 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 *{
     box-sizing:border-box;
 }
+
+.modal-dialog {
+    width: 360px !important;
+    margin-top: 120px;
+    margin: 30px auto;
+    .modal-content {
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    }
+    .confirm {
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      border-radius: 5px;
+      min-height: 150px;
+      .content {
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #fff !important;
+        font-weight: 700;
+      }
+      .buttons {
+        padding: 10px 15px;
+        float: right;
+        button {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+
+  
 
 /*
 ==============================================

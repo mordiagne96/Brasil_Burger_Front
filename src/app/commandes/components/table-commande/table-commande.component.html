@@ -9,30 +9,17 @@
         </tr>
     </thead>
     <tbody>
-        <tr class="">
-            <td class="align-middle">COM-001</td>
-            <td class="align-middle">2022-07-16 19:01:17</td>
-            <td class="align-middle">35 000 XOF</td>
-            <td class="align-middle">En Cours</td>
-            <td class="d-flex align-items-center justify-content-center gap-3">
-                <button class="btn btn-details btn-hover" routerLink="/catalogue/panier/2">Détails</button>
-                <button class="btn btn-annuler">Annuler</button>
-            </td>
-        </tr>
-        <tr class="">
-            <td class="align-middle">COM-001</td>
-            <td class="align-middle">2022-07-16 19:01:17</td>
-            <td class="align-middle">35 000 XOF</td>
-            <td class="align-middle">En Cours</td>
-            <td class="d-flex align-items-center justify-content-center gap-3">
-                <button class="btn btn-details btn-hover" routerLink="/catalogue/panier/2">Détails</button>
-                <button class="btn btn-annuler">Annuler</button>
-            </td>
-        </tr><tr class="">
-            <td class="align-middle">COM-001</td>
-            <td class="align-middle">2022-07-16 19:01:17</td>
-            <td class="align-middle">35 000 XOF</td>
-            <td class="align-middle">En Cours</td>
+        <tr class="" *ngFor="let commande of commandes | paginate
+        : {
+            itemsPerPage: tableSize,
+            currentPage: page,
+            totalItems: count
+          };
+    let i = index">
+            <td class="align-middle">{{commande.numeroCommande}}</td>
+            <td class="align-middle">{{commande.date}}</td>
+            <td class="align-middle">{{commande.montant}}</td>
+            <td class="align-middle">{{commande.etat}}</td>
             <td class="d-flex align-items-center justify-content-center gap-3">
                 <button class="btn btn-details btn-hover" routerLink="/catalogue/panier/2">Détails</button>
                 <button class="btn btn-annuler">Annuler</button>
@@ -40,5 +27,11 @@
         </tr>
     </tbody>
 </table>
-
-<app-itemtable-commande></app-itemtable-commande>
+<pagination-controls
+      previousLabel="Prev"
+      nextLabel="Next"
+      (pageChange)="onTableDataChange($event)"
+    >
+    </pagination-controls>
+<!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
+<!-- <app-itemtable-commande></app-itemtable-commande> -->

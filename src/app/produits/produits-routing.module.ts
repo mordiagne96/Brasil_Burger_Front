@@ -4,14 +4,11 @@ import { BoissonsComponent } from './pages/boissons/boissons.component';
 import { CatalogueComponent } from './pages/catalogue/catalogue.component';
 import { DetailMenuComponent } from './pages/detail-menu/detail-menu.component';
 import { FritesComponent } from './pages/frites/frites.component';
-import { PanierComponent } from './pages/panier/panier.component';
 import { ProduitsComponent } from './produits.component';
 
 const routes: Routes = [
   { path: '', component: CatalogueComponent },
   { path: 'details-menu/:id', component: DetailMenuComponent },
-  { path: 'panier', component: PanierComponent },
-  { path: 'panier/:id', component: PanierComponent },
   { path: 'frites', component: FritesComponent },
 ];
 

@@ -7,4 +7,5 @@ export interface TailleBoisson {
     stock:number
     check:boolean
     qteCheck:number
+    image:string
 }

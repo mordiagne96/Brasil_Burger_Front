@@ -9,6 +9,8 @@ import { TableCommandeComponent } from './components/table-commande/table-comman
 import { ListeCommandeComponent } from './pages/liste-commande/liste-commande.component';
 import { ItemsFiltreComponent } from './components/items-filtre/items-filtre.component';
 import { LayoutFrontModule } from '../layout-front/layout-front.module';
+import { ItemLigneCommandeComponent } from './components/item-ligne-commande/item-ligne-commande.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -18,13 +20,15 @@ import { LayoutFrontModule } from '../layout-front/layout-front.module';
     ListeCommandeComponent,
     ItemsFiltreComponent,
     TableCommandeComponent,
-    ItemtableCommandeComponent
+    ItemtableCommandeComponent,
+    ItemLigneCommandeComponent
   ],
   imports: [
     CommonModule,
     CommandesRoutingModule,
     LayoutsAdminModule,
-    LayoutFrontModule
+    LayoutFrontModule,
+    NgxPaginationModule
   ]
 })
 export class CommandesModule { }

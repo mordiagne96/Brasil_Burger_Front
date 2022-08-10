@@ -1,0 +1,8 @@
+<div class="card border-success gap-2 pt-1 position-relative pb-1 d-flex flex-column align-items-center w-40 h-44 ">
+    <img class="card-img-top h-28 w-32 rounded-xl border" src="data:image/png;base64,{{portion?.image}}" alt="Title" >
+      <h4 class="fs-5 text-center fw-bold">{{portion?.nom}}  </h4>
+      <div class="position-absolute h-28 bg-gray-300 left-0">
+          <input type="checkbox" class="top-0 w-5 rounded-circle h-5" #check1 value="portion"  (change)="getComplement($event, check1.value, portion?.id)" *ngIf="tailleBoisson == null">
+          <input type="checkbox" class="top-0 w-5 rounded-circle h-5" #check2 value="tailleBoisson"  (change)="getComplement($event, check2.value,portion?.id)" *ngIf="tailleBoisson != null">
+      </div>
+  </div>

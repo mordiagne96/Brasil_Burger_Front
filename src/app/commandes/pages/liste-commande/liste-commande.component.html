@@ -4,6 +4,8 @@
     <div class="col-2 block-1 bg-gray-100 h-full">
         <app-slide-bar></app-slide-bar>
     </div>
+<!-- {{commandes[0]|json}} -->
+
     <div class="col-10 block-2 bg-gray-200 d-flex flex-column">
         <app-header></app-header>
         <div class="block-2-content bg-white d-flex flex-column align-items-center gap-10 pt-5">
@@ -11,7 +13,16 @@
                 <span>Liste Commandes</span>
             </div>
             <app-items-filtre></app-items-filtre>
-            <app-table-commande></app-table-commande>
+            <!-- <thead>
+                <tr class="head">
+                    <th><div>Numéro</div></th>
+                    <th><div>Date</div></th>
+                    <th><div>Montant</div></th>
+                    <th><div>Etat</div></th>
+                    <th><div>Action</div></th>
+                </tr>
+            </thead> -->
+            <app-table-commande [commandes]="commandes"></app-table-commande>
         </div>
     </div>
 </div>

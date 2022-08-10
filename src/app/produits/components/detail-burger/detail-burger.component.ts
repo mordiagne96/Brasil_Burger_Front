@@ -27,12 +27,12 @@ export class DetailBurgerComponent implements OnInit {
   }
   
   addProduitBurger(event:any){
+      // event.target.disabled = true;
+      // event.target.style.backgroundColor = "gray"
       let burger:BurgerPanier={
           burger:this.burger,
-          quantite:this.quantiteBurger?.nativeElement.value
+          quantite:Number(this.quantiteBurger?.nativeElement.value)
       }
-
       this.servicePanier.addProduitBurger(burger)
-
   }
 }

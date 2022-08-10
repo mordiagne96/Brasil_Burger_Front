@@ -30,6 +30,7 @@ export class DetailMenuComponent implements OnInit {
   messageErreur: string = "";
   array:any=[];
   btnAddActive = true;
+  nombre:number=0
 
   // tailleBoissonsCheck:TailleBoissonCheck[]|null=null
 
@@ -52,7 +53,7 @@ export class DetailMenuComponent implements OnInit {
     this.href = this.router.url;
     this.array = this.href.split("/");
     this.id = this.array[this.array.length - 1]
-
+    this.servicePanier.nombreObservable.subscribe(data=>this.nombre=data)
     this.detailMenu = this.service.getById(this.id)
   }
 
@@ -242,4 +243,5 @@ export class DetailMenuComponent implements OnInit {
     }
     this.servicePanier.addProduitMenu(menu)
   }
+  
 }

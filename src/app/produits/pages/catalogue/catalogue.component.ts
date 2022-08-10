@@ -3,6 +3,8 @@ import { Observable } from 'rxjs';
 import { PanierService } from 'src/app/shared/services/panier.service';
 import { Catalogue } from '../../shared/models/catalogue';
 import { Produit } from '../../shared/models/produit';
+import { TailleBoisson } from '../../shared/models/taille-boisson';
+import { Taille } from '../../shared/models/taille';
 import { CatalogueService } from '../../shared/service/catalogue.service';
 
 @Component({
@@ -16,34 +18,40 @@ export class CatalogueComponent implements OnInit {
   cat:Catalogue|null = null
   cheminLogo:string="../../../../assets/images/logo.png";
   base64 = "data:image/png;base64,";
-  nbre:number=0
+  nbre:number=0;
 
   constructor(private service:CatalogueService, private servicePanier:PanierService) {}
-  // nombre:number=0
   visible = false;
-  // @Input idBurger
+  showComplement=false;
+  showCatalogue=true;
+
   
   show_btn_Add_burger = true;
   show_btn_Add_menu = false;
-  produits:Produit[]=[];
-  // @Input() item = ''; 
+  produits:Produit[]|undefined=[];
   produit : Produit | null = null;
   typeCatalogue: string = "burgers";
+  catalogue:Catalogue|null=null;
+  portions:Produit[]|undefined =[]
+  tailleBoissons:TailleBoisson[]=[]
+  tailles:Taille[]=[]
 
   ngOnInit(): void {
-    this.servicePanier.shareNombre.subscribe(
-      data=>{
-        this.nbre = data
-        // alert(this.nbre)
-      }
-    )
+    this.servicePanier.nombreObservable.subscribe(data=>this.nbre=data)
 
     this.show_btn_Add_burger = true;
     this.show_btn_Add_menu = false;
     this.catalogues$ = this.service.all();
 
+    // this.tailles.
+
     this.service.all().subscribe(data=>{
+        this.catalogue = data
+        // console.log(data.tailles)
         this.produits = data.burgers;
+        this.portions = data.frites;
+        this.tailles = data.tailles;
+
         this.produits.map(
           produit=>{
             if(produit.image == null){
@@ -55,19 +63,10 @@ export class CatalogueComponent implements OnInit {
         )
     });
 
-//   this.service.all().subscribe(data=>{
-//     this.produits = data[0].burgers;
-//     this.produits.map(
-//       produit=>{
-//         produit.imageReelle = "data:image/png;base64,"+produit.image
-//       }
-//     )
-// });
-
   }
 
   showDetail(id:number) {
-      this.produits.map(
+      this.produits?.map(
           prod=>{
               if(prod.id == id){
                   if(prod.image == null){
@@ -85,39 +84,49 @@ export class CatalogueComponent implements OnInit {
   }
 
   fitreCatalogue(type:string)
-  {
+  { 
       switch(type){
         case "menus":
-          this.catalogues$?.subscribe(data=>{
-            this.produits = data.menus;
-            this.produits.map(
-              produit=>{
-                if(produit.image == null){
-                    produit.imageReelle="../../../../assets/images/logo.png"
-                }else{
-                    produit.imageReelle = "data:image/png;base64,"+produit.image
+          this.produits = this.catalogue?.menus
+          this.produits?.map(
+                produit=>{
+                  if(produit.image == null){
+                      produit.imageReelle="../../../../assets/images/logo.png"
+                  }else{
+                      produit.imageReelle = "data:image/png;base64,"+produit.image
+                  }
                 }
-              }
-            )
-        });
-        this.show_btn_Add_burger = false;
-        this.show_btn_Add_menu = true;
+          )
+          this.show_btn_Add_burger = false;
+          this.show_btn_Add_menu = true;
+          this.showComplement=false;
+          this.showCatalogue=true;
         break;
+        
         case "burgers":
-          this.catalogues$?.subscribe(data=>{
-            this.produits = data.burgers;
-            this.produits.map(
-              produit=>{
-                if(produit.image == null){
-                    produit.imageReelle="../../../../assets/images/logo.png"
-                }else{
-                    produit.imageReelle = "data:image/png;base64,"+produit.image
-                }
+          this.produits = this.catalogue?.burgers
+          this.produits?.map(
+            produit=>{
+              if(produit.image == null){
+                  produit.imageReelle="../../../../assets/images/logo.png"
+              }else{
+                  produit.imageReelle = "data:image/png;base64,"+produit.image
               }
-            )
-        });
-        this.show_btn_Add_burger = true;
-        this.show_btn_Add_menu = false;
+            }
+          )     
+        
+          this.show_btn_Add_burger = true;
+          this.show_btn_Add_menu = false;
+          this.showComplement=false;
+          this.showCatalogue=true;
+          break;
+
+
+        case "complement":
+          this.portions = this.catalogue?.frites
+               
+          this.showComplement=true;
+          this.showCatalogue=false;
           break;
       }
   }

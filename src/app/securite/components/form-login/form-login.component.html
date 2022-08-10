@@ -1,16 +1,16 @@
-<form class="form-login justify-content-center gap-3 d-flex flex-column">
+<form #f="ngForm" (ngSubmit)="onSubmit(f.value)" class="form-login justify-content-center gap-3 d-flex flex-column">
     <div class="d-flex align-iems-center justify-content-center">
         <h3 class="text-5xl fw-bold">Connexion</h3>
     </div>
     <div class="d-flex flex-column p-3">
         <label>Entrer Votre Login ou Email</label>
-        <input type="email" placeholder="monemail@gmail.com">
+        <input type="email" placeholder="monemail@gmail.com" name="login" ngModel>
     </div>
     <div class="d-flex flex-column p-3">
         <label>Entrer Votre Password</label>
-        <input type="password" placeholder="********">
+        <input type="password" placeholder="********" name="password" ngModel>
     </div>
     <div class="d-flex align-iems-center justify-content-center p-3">
-        <button type="submit" class="btn-connecter" routerLink="/catalogue/burgers">Se Connecter</button>
+        <button type="submit" class="btn-connecter">Se Connecter</button>
     </div>
 </form>
