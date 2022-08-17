@@ -50,6 +50,16 @@ export class PanierService {
     return this.http.post<Commande>(this.url_back + 'api/addCommande', JSON.stringify(commande), httpOptions)
   }
 
+  annulerCommande(id:number){
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        // 'Authorization': `Bearer ${token}`
+      })
+    }
+    return this.http.put<Commande>(this.url_back + `updateEtat/${id}/annuler`, JSON.stringify(""), httpOptions)
+  }
+
   addProduitMenu(menu:MenuPanier){
     if(!this.isExisteMenu(menu)){
       this.menus.push(menu)
@@ -173,7 +183,7 @@ export class PanierService {
             let tbs:TailleBoisson[]|undefined=[]
             
             menuPanier.menu?.tailleMenus.forEach(element => {
-              if(element.taille.id == data.idTaille){
+              if(element.taille?.id == data.idTaille){
                 
                 data.boissonQuantites?.map(
                   bois=>{
@@ -184,7 +194,7 @@ export class PanierService {
                     }
                     tailleBoisson.taille = element.taille
 
-                    tbs = element.taille.tailleBoissons
+                    tbs = element.taille?.tailleBoissons
                       tbs?.map(tb=>{
                           if(tb.boisson.id == bois.boissonId){
                             tailleBoisson.boisson = tb.boisson
@@ -250,6 +260,18 @@ export class PanierService {
 
   getPortionsCommande(){
     return this.portionCommande
+  }
+
+  clearPanier(){
+    this.menus = []
+    this.burgers = []
+    this.tailleBoissonCommande=[]
+    this.portionCommande=[]
+    this.nombre=0
+    this.prixTotal=0
+
+    this.nombreSubject.next(this.nombre)
+    this.tot.next(this.prixTotal)
   }
 
 }

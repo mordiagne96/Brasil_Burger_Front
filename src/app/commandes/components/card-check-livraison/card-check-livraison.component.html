@@ -1,0 +1,10 @@
+<div class="d-flex align-items-center w-full pl-6 h-16 gap-2 bg-gray-100 border">
+    <div class="d-flex gap-3 align-items-center w-2/3">
+        <input type="checkbox" class="w-5 h-5" (click)="checkCommande($event,commande)" name="" id="">
+        <label class="text-xl">{{commande?.numeroCommande}}</label>
+    </div>
+    <div>
+        <label for="" class="text-xl">{{commande?.montant}} XOF</label>
+    </div>
+    
+</div>

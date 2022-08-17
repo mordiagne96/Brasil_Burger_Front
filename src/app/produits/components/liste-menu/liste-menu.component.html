@@ -1,0 +1,35 @@
+<table class="table table-bordered table-hover table-sm w-full">
+    <thead>
+        <tr class="head">
+            <th><div>Image</div></th>
+            <th><div>Nom</div></th>
+            <th><div>Prix</div></th>
+            <th><div>Action</div></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="" *ngFor="let menu of menus  | paginate
+        : {
+            itemsPerPage: tableSize,
+            currentPage: page,
+            totalItems: count
+          };
+    let i = index">
+            <td class="align-middle d-flex align-items-center justify-content-center"><img src="data:image/png;base64,{{menu?.image}}" class="w-10 h-10 image-menu" alt=""></td>
+            <td class="align-middle">{{menu.nom}}</td>
+            <td class="align-middle">{{menu.prix}}</td>
+            <td class="d-flex align-items-center justify-content-center gap-3">
+                <button class="btn btn-details btn-hover" routerLink="/catalogue/panier/2">Archiver</button>
+                <button class="btn btn-annuler">Modifier</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<pagination-controls
+      previousLabel="Précédent"
+      nextLabel="Suivant"
+      (pageChange)="onTableDataChange($event)"
+    >
+    </pagination-controls>
+<!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
+<!-- <app-itemtable-commande></app-itemtable-commande> -->

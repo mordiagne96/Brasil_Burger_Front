@@ -1,0 +1,64 @@
+<div class="content d-flex">
+    <div class="col-2 block-1 bg-gray-100 h-full">
+        <app-slide-bar></app-slide-bar>
+    </div>
+    <div class="col-10 block-2  d-flex flex-column">
+        <app-header></app-header>
+        <div class="block-2-content  d-flex flex-column align-items-center gap-10 pt-5">
+            <div class="block-titre d-flex gap-2 align-items-center justify-content-end pr-36 text-2xl text-white fw-bold ">
+                <button class="text-xl text-yellow-500 border-none d-flex align-items-center gap-1 fw-bold"  (click)="nouveauMenu()"><i class="bi bi-plus-circle-fill fs-2 pulse"></i>Nouveau Menu</button>
+                <button class="text-xl border-2 h-12 d-flex align-items-center gap-1 bg-yellow-500 text-white pl-12 pr-12 hover:bg-yellow-400" (click)="listeMenu()"><i class="bi bi-card-list "></i>Liste Menu</button>
+            </div>
+            <div class="w-full d-flex p-2 gap-4 h-1/2 fadeIn" *ngIf="option == 'nouveau'? true: false">
+                <div class="border-2 border-yellow-500 col-5 w-1/2 p-2 d-flex flex-column gap-2">
+                    <div class="w-full h-auto " *ngIf="step == 1">
+                        <h1 class="fs-5 fw-bold">Nom du Menu</h1>
+                        <input class="h-14 w-full form-control text-xl" #nom (keyup)="getNomMenu(nom.value)" type="text" name="" id="">
+                    </div>
+
+                    <div class="w-full h-3/4 d-flex flex-column justify-content-center" *ngIf="step == 1">
+                        <h1 class="fs-5 fw-bold">Selectionner un burger</h1>
+                        <div class="w-full h-3/4 gap-2 p-2 bg-white overflow-x-scroll d-flex">
+                            <app-card-produit-menu *ngFor="let burger of data?.burgers" [data]="burger" type="burger"></app-card-produit-menu>
+                        </div>
+                    </div>
+                    
+                    <div class="w-full h-2/6" *ngIf="step == 2">
+                        <h1 class="fs-5 fw-bold">Selectionner un Portion de Frite</h1>
+                        <div class="w-full p-2 h-4/5 bg-white  position-relative d-flex gap-2  overflow-x-scroll">
+                            <app-card-produit-menu *ngFor="let frite of data?.frites" [data]="frite" type="frite"></app-card-produit-menu>
+                        </div> 
+                    </div>
+                    <div class="w-full h-auto  d-flex flex-column justify-content-center" *ngIf="step == 2">
+                        <h1 class="fs-5 fw-bold">Selectionner une Taille</h1>
+                        <div class="w-full d-flex gap-2 p-2 position-relative h-auto bg-white overflow-x-scroll">
+                            <!-- <div class="d-flex w-auto align-items-center gap-2 p-2 border-r-2 border-yellow-500" *ngFor="let taille of data?.tailles">
+                                <input type="checkbox" name="" id="" (click)="checkTaille($event, taille, quantite.value)" class="w-6 h-6"><label for="" class="fs-6">{{taille.libelle}}</label>
+                                <app-card-increment (quantiteEmit)="quantiteEmit($event)"></app-card-increment>
+                            </div> -->
+                            <app-card-menu-taille *ngFor="let taille of data?.tailles" [taille]="taille"></app-card-menu-taille>
+                        </div>
+                    </div>
+                    <div class="w-full h-1/5 d-flex flex-column justify-content-center" *ngIf="step == 2">
+                            <input type="file" (change)="getImage($event)" #image accept="image/*" id="customOutlineFile">
+                    </div>
+
+                    <div class="d-flex w-full justify-content-center gap-2">
+                        <button type="button" class="btn btn-outline-success btn-lg" *ngIf="step != 1" (click)="precedent(step)">précédent</button>
+                        <button type="button" class="btn btn-outline-success btn-lg" *ngIf="step != 2" (click)="suivant(step)">suivant</button>
+                        <button type="button" class="btn btn-success btn-lg" *ngIf="step == 2" (click)="validerMenu()">Valider</button>
+                    </div>
+
+                </div>
+
+                <div class="border-2 w-1/2 p-2 border-yellow-500">
+                </div>
+            </div>
+            <div class="w-4/5 pullDown" *ngIf="option == 'liste'? true: false">
+                <!-- {{menus|json }} -->
+                <app-liste-menu [menus]="menus"></app-liste-menu>
+            </div>
+        </div>
+    </div>
+</div>
+

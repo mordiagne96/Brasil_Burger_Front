@@ -36,7 +36,7 @@
             <div class="det-boisson d-flex align-content-start flex-wrap gap-1">
                 <div class="det-1 d-flex align-content-start flex-wrap gap-1">
                     <div class="form-check" *ngFor="let menuTaille of detailMenu.menu.tailleMenus">
-                        <app-card-check (getBoissonBy)="getBoissonBy($event)" [tailleboissons]="menuTaille.taille.tailleBoissons" [taille]="menuTaille.taille"></app-card-check>
+                        <app-card-check (getBoissonBy)="getBoissonBy($event)" [tailleboissons]="menuTaille.taille?.tailleBoissons" [taille]="menuTaille.taille"></app-card-check>
                     </div>
                 </div>
                 <div class="det-2 d-flex align-content-start flex-wrap gap-1">

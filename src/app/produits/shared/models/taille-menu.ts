@@ -2,7 +2,7 @@ import { Produit } from "./produit"
 import { Taille } from "./taille"
 
 export interface TailleMenu {
-    id?:number
+    id?:number|null
     quantite:number
-    taille:Taille
+    taille:Taille|null
 }

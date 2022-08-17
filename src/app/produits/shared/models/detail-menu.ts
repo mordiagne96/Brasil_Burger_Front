@@ -3,12 +3,13 @@ import { Produit } from "./produit"
 import { TailleMenu } from "./taille-menu"
 
 export interface DetailMenu {
-    id?:number
+    id?:number|null
     nom:string
     prix:number
     image:string
     burgerMenus:BurgerMenu[],
-    portionFrite:Produit,
-    tailleMenus:TailleMenu[]
+    portionFrite:Produit|null,
+    tailleMenus:TailleMenu[],
+    file:File|null
     // boissons:[]
 }

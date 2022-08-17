@@ -1,0 +1,6 @@
+    <div class="card h-full w-32 border-2 border-yellow-500 d-flex pb-2 flex-column align-items-center ">
+        <img class="card-img-top w-3/4 h-3/4" src="data:image/png;base64,{{data?.image}}" alt="Title">
+        <h1 class="text-center text-xs">{{data.nom}}</h1>
+        <input type="checkbox" name="" class="position-absolute left-0 w-5 h-5" #check (click)="checkProduit($event, data, quantite.value)" value="10">
+        <input type="number" name=""  value="1" min="1" id="" (change)="changeValue($event)" #quantite class="position-absolute bg-yellow-500 right-0 w-10 border-2 border-white h-8 text-2xl text-white">
+    </div>

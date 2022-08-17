@@ -3,7 +3,8 @@ import { PanierService } from 'src/app/shared/services/panier.service';
 import { SecuriteService } from 'src/app/shared/services/securite.service';
 import { NotifierService } from 'angular-notifier';
 import { NgxBootstrapConfirmService } from 'ngx-bootstrap-confirm';
-import {Router} from "@angular/router"
+import {Router} from "@angular/router";
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -24,20 +25,18 @@ export class HeaderComponent implements OnInit {
 
   }
   deconnexion(){
-    let options ={
-      title: 'Est que vous voulez vraiment déconnecter ?',
-      confirmLabel: 'Okay',
-      declineLabel: 'Cancel'
-    }
-    this.notifierConfirme.confirm(options).then(
-        (resp:boolean) => {
-          if(resp){
-            this.securiteService.signOut();
-            this.router.navigate(['/securite/login'])
-            this.notifier.notify("success","Votre session vient d'etre fermé!")
-
-          }
-        }
-    );
+    Swal.fire({
+      title: 'Voulez-vous déconnecter?',
+      text: 'This process is irreversible.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'OUI, je valide.',
+      cancelButtonText: "Non, j'annule",
+    }).then((result) => {
+      if (result.value) {
+          this.securiteService.signOut();
+          this.router.navigate(['/securite/login'])
+      }
+    })
   }
 }

@@ -18,6 +18,13 @@ import { CatalogueComponent } from './pages/catalogue/catalogue.component';
 import { CardCheckComponent } from './components/card-check/card-check.component';
 import { LayoutFrontModule } from '../layout-front/layout-front.module';
 import { CardComplementComponent } from './components/card-complement/card-complement.component';
+import { AddMenuComponent } from './pages/add-menu/add-menu.component';
+import { LayoutsAdminModule } from '../layouts-admin/layouts-admin.module';
+import { CardProduitMenuComponent } from './components/card-produit-menu/card-produit-menu.component';
+import { CardIncrementComponent } from './components/card-increment/card-increment.component';
+import { CardMenuTailleComponent } from './components/card-menu-taille/card-menu-taille.component';
+import { ListeMenuComponent } from './components/liste-menu/liste-menu.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -36,12 +43,19 @@ import { CardComplementComponent } from './components/card-complement/card-compl
     FritesComponent,
     CatalogueComponent,
     CardCheckComponent,
-    CardComplementComponent
+    CardComplementComponent,
+    AddMenuComponent,
+    CardProduitMenuComponent,
+    CardIncrementComponent,
+    CardMenuTailleComponent,
+    ListeMenuComponent
   ],
   imports: [
     CommonModule,
     ProduitsRoutingModule,
-    LayoutFrontModule
+    LayoutFrontModule,
+    LayoutsAdminModule,
+    NgxPaginationModule
   ],
   exports: [
     CardProduitComponent,

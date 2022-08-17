@@ -22,6 +22,13 @@ export class SecuriteService {
     }, httpOptions);
   }
 
+  isConnect(){
+    if(this.getToken() == null){
+      return false
+    }
+    return true
+  }
+
   signOut(): void {
     window.sessionStorage.clear();
   }

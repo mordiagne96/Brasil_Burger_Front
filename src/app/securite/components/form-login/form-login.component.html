@@ -4,11 +4,11 @@
     </div>
     <div class="d-flex flex-column p-3">
         <label>Entrer Votre Login ou Email</label>
-        <input type="email" placeholder="monemail@gmail.com" name="login" ngModel>
+        <input type="email" placeholder="monemail@gmail.com" name="login" pattern="\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b" required ngModel>
     </div>
     <div class="d-flex flex-column p-3">
         <label>Entrer Votre Password</label>
-        <input type="password" placeholder="********" name="password" ngModel>
+        <input type="password" placeholder="********" name="password" required ngModel>
     </div>
     <div class="d-flex align-iems-center justify-content-center p-3">
         <button type="submit" class="btn-connecter">Se Connecter</button>

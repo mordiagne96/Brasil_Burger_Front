@@ -110,7 +110,8 @@ export class PanierComponent implements OnInit {
               menuCommandeTailleBoissons:this.menuCommandes,
               burgerCommandes:this.burgers,
               portionFriteCommandes:this.portions,
-              zone:zone
+              zone:zone,
+              client:null
           }
 
           console.log(commande)
@@ -122,7 +123,7 @@ export class PanierComponent implements OnInit {
 
           }else{
               let success = false;
-              if(commande.menuCommandeTailleBoissons.length == 0 && commande.burgerCommandes.length == 0){
+              if(commande.menuCommandeTailleBoissons?.length == 0 && commande.burgerCommandes?.length == 0){
                 Swal.fire('Annulé', 'Choississez au moins un Menu ou un Burger', 'error');
               }else{
                 if(commande.zone == null){
@@ -135,6 +136,12 @@ export class PanierComponent implements OnInit {
                     (error) => {
                       if(Number(error.status) == 201){
                         Swal.fire('Commande Validé!', 'Commande Ajouté avec succés', 'success');
+                            // this.menus=[];
+                            // this.burgers=[];
+                            // this.portions=[];
+                            // this.tailleBoissons=[];
+                            this.servicePanier.clearPanier()
+                            this.isExist = false
                       }else{
                         this.notifier.notify("error", "Une erreur est survenue lors de l'ajout de commande")
                       }

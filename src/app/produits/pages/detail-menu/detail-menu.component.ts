@@ -119,7 +119,7 @@ export class DetailMenuComponent implements OnInit {
               this.menu = data.menu;
               data.menu.tailleMenus.map(  
                   tailleMenu=>{
-                      if(tailleMenu.taille.id == choix.tailleId){
+                      if(tailleMenu.taille?.id == choix.tailleId){
                           if(tailleMenu.quantite < choix.quantite){
                               this.messageErreur="Vous avez dépacer la quantite definie pour cette taille"
                               this.erreur = true
@@ -190,7 +190,7 @@ export class DetailMenuComponent implements OnInit {
                           }else{
                               this.tailleBoissonCheck.map(
                                 tbCheck=>{
-                                    if(tbCheck.idTaille == tailleMenu.taille.id){
+                                    if(tbCheck.idTaille == tailleMenu.taille?.id){
                                         if(tbCheck.quantite != tailleMenu.quantite){
                                           this.btnAddActive = true
                                         }else{

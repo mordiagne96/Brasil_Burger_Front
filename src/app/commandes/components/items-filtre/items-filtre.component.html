@@ -1,22 +1,38 @@
 <div class="block-filter d-flex justify-content-center align-items-center gap-5 " >
-    <label>Filtre</label>
     <div class="d-flex justify-content-center gap-2">
-        <span>Etat</span>
-        <select>
-            <option>Selectionner</option>
-            <option>En cours</option>
-            <option>Terminer</option>
-            <option>Valider</option>
-            <option>Annuler</option>
+        <label>Filtre</label>
+        <select #etat (change)="filtreCommande($event)" name="etat" [(ngModel)]="filterEtat">
+            <!-- <option value="null" selected>Selectionner</option> -->
+            <option value="">selectionner</option>
+            <option value="en cours">En cours</option>
+            <option value="terminer">Terminer</option>
+            <option value="valider">Valider</option>
+            <option value="en livraison">En livraison</option>
+            <option value="annuler">Annuler</option>
         </select>
     </div>
+    <!-- {{filterEtat}} -->
     <div class="d-flex justify-content-center gap-2">
         <span>Date</span>
         <div class="d-flex justify-content-center gap-2">
-            <span>du</span>
-            <input type="date">
-            <span>au</span>
-            <input type="date">
+            <input type="date" [(ngModel)]="filterDate" #date (change)="filterDateCommande(date.value)">
         </div>
+    </div>
+    <div class="d-flex justify-content-center gap-2">
+        <span>Client</span>
+        <div class="d-flex justify-content-center gap-2">
+            <input type="text" [(ngModel)]="filterPrenom"  #client (keyup)="filterClientCommande(client.value)">
+        </div>
+    </div>
+    <div class="d-flex justify-content-center gap-2">
+        <span>Zone</span>
+        <!-- <div class="d-flex justify-content-center gap-2">
+            <input type="text" #zone [(ngModel)]="filterZone" (keyup)="filterZoneCommande(zone.value)">
+        </div> -->
+        <select #etat (change)="filterZoneCommande($event)" name="etat" [(ngModel)]="filterZone">
+            <!-- <option value="null" selected>Selectionner</option> -->
+            <option value="">selectionner</option>
+            <option value="{{zone.nom}}" *ngFor="let zone of zones">{{zone.nom}}</option>
+        </select>
     </div>
 </div>

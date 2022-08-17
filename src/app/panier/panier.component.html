@@ -32,13 +32,13 @@
             </div>
         </div>
         <div class="w-full border-y-white h-14 d-flex align-items-cente pl-10 gap-2">
-            <div class="d-flex align-items-center gap-2">
-                <label  class="text-xl fw-bold">Téléphone: </label>
-                <input #telephone type="text" class="h-10" >
+            <div class="d-flex align-items-center gap-2" >
+                <label class="text-xl fw-bold">Téléphone: </label>
+                <input #telephone type="text" class="h-10">
             </div>
             <div class="d-flex align-items-center gap-2">
-                <label class="text-xl fw-bold">Email: </label>
-                <input  #email  type="text" class="h-10" >
+                <label class="text-xl fw-bold" >Email: </label>
+                <input  #email  type="text" class="h-10">
             </div>
         </div>
         <div class="w-full border-y-white h-14 d-flex align-items-center  pl-10 gap-2">
@@ -54,7 +54,7 @@
                </select>
             </div>
         </div>
-        <div class="w-full border-y-white h-14 d-flex align-items-center  pl-10 gap-2">
+        <div class="w-full border-y-white h-14 d-flex align-items-center pl-10 gap-2">
             <button type="button" class="btn btn-success btn-lg" (click)="valideCommande(telephone.value,email.value, zone.value)">Valider La Commande</button>
             <button type="button" class="btn btn-warning btn-lg">Annuler</button>
         </div>
