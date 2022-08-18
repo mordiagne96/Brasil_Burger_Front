@@ -59,4 +59,28 @@ export class LivraisonService {
         }
     return this.http.post<any>(this.url_back + 'api/livraisons', JSON.stringify(this.livraison), httpOptions)
   }
+
+  changeEtatLivraison(livraison:Livraison,token:string){
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      }),
+    }
+    let liv = {
+      id:livraison.id
+    }
+    return this.http.put<any>(this.url_back + `api/livraisons/${livraison.id}/valider`, JSON.stringify(liv), httpOptions)
+  }
+
+  getLivraisonById(livraison:Livraison, token:string){
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+      })
+    }
+    return this.http.get<any>(this.url_back + `api/livraisons/${livraison.id}`,httpOptions)
+  }
+
 }

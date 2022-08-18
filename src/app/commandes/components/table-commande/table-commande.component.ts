@@ -33,16 +33,59 @@ export class TableCommandeComponent implements OnInit {
   }
 
   annulerCommande(commande:Commande){
-      let $token = this.securiteService.getToken()
+      // let $token = this.securiteService.getToken()
+      // this.serviceCommande.changeEtat(commande, $token,"annuler").subscribe(
+      //     (data)=>{
+      //         console.log(data)
+      //     },
+      //     (error)=>{
+      //         if(error.status == 200){
+      //             Swal.fire('Commande Annuler!', `Commande annulé avec succés`, 'success');
+      //         } 
+
+      //         if(error.status == 400){
+      //             console.log(error.message)
+      //             Swal.fire('Attention!', 'Impossible de changer l\'etat du commande ', 'error');
+      //         }
+      //     },
+      //     ()=>{
+      //       console.error("kkkk")
+      //     }
+      // )
+
+      this.changeEtat(commande, "annuler")
+
+  }
+
+  changeEtat(commande:Commande, etat:string){
+    let $token = this.securiteService.getToken()
       this.serviceCommande.changeEtat(commande, $token,"annuler").subscribe(
           (data)=>{
               console.log(data)
           },
           (error)=>{
-              console.log(error.status)
               if(error.status == 200){
-                  Swal.fire('Commande Annuler!', 'Commande annulé avec succés', 'success');
+                  Swal.fire(`Commande ${etat} !`, `Commande ${etat} avec succés`, 'success');
+                  this.commandes.map(
+                    (data)=>{
+                      if(data.id == commande.id){
+                        data.etat = etat
+                      }
+                    }
+                  )
+                   this.commandes = this.commandes.filter(
+                    (commande)=>{
+                      return commande.etat === "en cours"
+                    })
               } 
+
+              if(error.status == 400){
+                  console.log(error.message)
+                  Swal.fire('Attention!', `Impossible de passer la commande à ${etat}`, 'error');
+              }
+          },
+          ()=>{
+            console.error("je suis la")
           }
       )
   }

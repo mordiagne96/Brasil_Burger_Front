@@ -40,12 +40,15 @@ export class CatalogueService {
     let commandesClient = this.http.get<CommandeClient>(`${this.url_back}api/clientCommande/1/${email}`);
     commandesClient.subscribe(
       data=>{
+        
           this.commandes =  data.commandes.reverse()
+
           this.commandes.map(
               data=>{
                   data.date = formatDate(data.date as string,"dd-MM-yyyy", 'en-US')
               }
           )
+
           this.commandesSource= data.commandes.reverse()
           this.commandeSubject.next(this.commandes)
       }

@@ -12,7 +12,7 @@ export class FilterPrenomPipe implements PipeTransform {
     }else{
       return commandes.filter(
           commande=>{
-            return commande.client.nom.toLowerCase() == filterPrenom.toLowerCase()
+            return commande.client.nom.toLowerCase().indexOf(filterPrenom.toLowerCase()) != -1
           }
       )
     }

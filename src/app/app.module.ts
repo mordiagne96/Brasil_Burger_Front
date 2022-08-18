@@ -27,6 +27,7 @@ import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
     FormsModule,
     NotifierModule,
     ReactiveFormsModule,
+  
     
   ],
   providers: [{ provide: JWT_OPTIONS, useValue: JWT_OPTIONS }, JwtHelperService],

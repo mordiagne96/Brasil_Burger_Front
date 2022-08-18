@@ -1,3 +1,4 @@
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -13,7 +14,7 @@ export class SecuriteService {
 
   private url_back:string = "http://localhost:8000/api/";
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private serviceJwt : JwtHelperService) { }
 
   login(username: string, password: string): Observable<any> {
     return this.http.post(this.url_back + 'login_check', {
@@ -53,6 +54,16 @@ export class SecuriteService {
       return JSON.parse(user);
     }
     return {};
+  }
+
+  public getRole(){
+    if(this.serviceJwt.decodeToken(this.getToken() as string).roles.includes('ROLE_GESTIONNAIRE')){
+      return 'ROLE_GESTIONNAIRE';
+    }
+    if(this.serviceJwt.decodeToken(this.getToken() as string).roles.includes('ROLE_CLIENT')){
+      return 'ROLE_CLIENT';
+    }
+    return 'ROLE_VISITEUR'
   }
 
 }

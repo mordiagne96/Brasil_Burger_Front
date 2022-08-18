@@ -4,11 +4,6 @@ table{
     background-color:#F6F5F5;
 }
 
-
-.head{
-    /* background-color:#FFB135; */
-}
-
 .head div{
     width: 100%;
     height:4vh;
@@ -19,12 +14,9 @@ table{
     font-size:2vh;
     color:white;
     border-radius:1vh;
-    /* padding-left:1vh;
-    border:0.2vh solid white;
-    margin-left:1vh; */
 }
+
 .btn{
-    width:30%;
     border-radius:1.5vh;
 }
 
@@ -40,11 +32,14 @@ table{
 
 .btn-annuler{
     border:0.3vh solid #E74C3C;
-    /* background-color:#E74C3C; */
     color:#E74C3C;
 }
 
 .btn-annuler:hover{
     background-color:#E74C3C;
     color:white;
+}
+
+.btn-annuler:disabled{
+    background-color:rgb(228, 211, 211);
 }

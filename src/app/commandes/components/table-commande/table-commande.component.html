@@ -19,7 +19,7 @@
           };
     let i = index  ">
     <!-- {{filterEtat}} -->
-    {{filterPrenom}}
+    <!-- {{filterPrenom}} -->
     <!-- <tr class="" *ngFor="let commande of commandes | filterCommande:filterEtat"> -->
             <td class="align-middle">{{commande.numeroCommande}}</td>
             <td class="align-middle">{{commande.date}}</td>
@@ -28,7 +28,8 @@
             <td class="align-middle">{{commande.etat}}</td>
             <td class="d-flex align-items-center justify-content-center gap-3">
                 <button class="btn btn-details btn-hover" routerLink="/catalogue/panier/2">Détails</button>
-                <button class="btn btn-annuler" (click)="annulerCommande(commande)">Annuler</button>
+                <!-- <button class="btn btn-details btn-hover" *ngIf="role == 'gestionnaire'" routerLink="/catalogue/panier/2">Valider</button> -->
+                <button class="btn btn-annuler" (click)="annulerCommande(commande)" [disabled]="commande.etat == 'valider' || commande.etat == 'annuler' ? true : false ">Annuler</button>
             </td>
         </tr>
     </tbody>

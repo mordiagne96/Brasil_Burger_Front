@@ -18,6 +18,7 @@ import Swal from 'sweetalert2';
 })
 export class AddLivraisonComponent implements OnInit {
   commandes:Commande[]=[]
+  livraison:Livraison|null=null
   $token:string|null =null
   page: number = 1;
   count: number = 0;
@@ -133,5 +134,11 @@ export class AddLivraisonComponent implements OnInit {
     }
   }
 
+  detailLivraison(livraison:any){
+    this.option = "details"
+    this.commandes = livraison.commandes
+    this.livraison = livraison
+    // console.log(this.commandes)
+  }
 
 }

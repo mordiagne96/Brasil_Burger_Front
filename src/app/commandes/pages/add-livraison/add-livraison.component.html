@@ -71,7 +71,23 @@
             </div>
             <div class="w-4/5 pullDown" *ngIf="option == 'liste' ? true : false">
                 <!-- {{livraisons|json }} -->
-                <app-table-livraison [livraisons]="livraisons"></app-table-livraison>
+                <app-table-livraison [livraisons]="livraisons" (showDetailEvent)="detailLivraison($event)"></app-table-livraison>
+            </div>
+
+            <div class="w-4/5 pullDown font-sans d-flex flex-column gap-2" *ngIf="option == 'details' ? true : false">
+                <span class="text-3xl fw-bold font-sans">Details Livraison</span>
+                <div class="h-auto text-xl border-2 w-2/5 details bg-gray-50 pl-3">
+                    <div class=" d-flex gap-3">
+                        <label for="" class="fw-bolder" >Date: </label><span>{{livraison?.date}}</span>
+                    </div>
+                    <div class=" d-flex gap-3">
+                        <label for="" class="fw-bolder">Montant: </label><span>{{livraison?.montantTotal}} (XOF)</span>
+                    </div>
+                    <div class=" d-flex gap-3">
+                        <label for="" class="fw-bolder">Livreur: </label><span>{{livraison?.livreur.prenom}} {{livraison?.livreur.nom}}</span>
+                    </div>
+                </div>
+                <app-table-commande [commandes]="commandes"></app-table-commande>
             </div>
         </div>
     </div>

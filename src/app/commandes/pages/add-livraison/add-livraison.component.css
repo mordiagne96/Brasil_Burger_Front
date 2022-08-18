@@ -33,3 +33,7 @@ select{
     border-radius:2vh;
     font-size:2vh;
 }
+.details{
+    border:0.1vh solid #FFB135;
+    background-color:#F6F5F5;
+}

@@ -50,8 +50,12 @@ export class FormLoginComponent implements OnInit {
               }
             )
         }else{
-          console.log(this.jwtService.decodeToken(data.token).username)
-          this.router.navigate(['/catalogue'])
+          // console.log(this.jwtService.decodeToken(data.token).username)
+          if(this.securiteService.getRole() == "ROLE_GESTIONNAIRE"){
+              this.router.navigate(['/commandes/liste-commandes'])
+          }else{
+              this.router.navigate(['/catalogue'])
+          }
           Swal.fire('Hi', 'Connexion reussie!', 'success');
         }
         

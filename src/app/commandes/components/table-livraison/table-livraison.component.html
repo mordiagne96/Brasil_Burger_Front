@@ -1,8 +1,11 @@
 <ng-container >
+    <div class="alert alert-success" *ngIf="success" role="alert">
+        <strong>Success!</strong><label for="" class="ml-4">Livraison validé avec succéss</label>
+    </div>
+    
     <table class="table table-bordered table-hover table-sm">
         <thead>
             <tr class="head">
-                <!-- <th><div>Numéro</div></th> -->
                 <th><div>Date</div></th>
                 <th><div>Montant</div></th>
                 <th><div>Etat</div></th>
@@ -11,26 +14,15 @@
         </thead>
         <tbody>
             <tr class="" *ngFor="let livraison of livraisons">
-        <!-- {{filterEtat}} -->
-        <!-- {{filterPrenom}} -->
-        <!-- <tr class=""> -->
-                <!-- <td class="align-middle">{{livraison.id}}</td> -->
                 <td class="align-middle">{{livraison.date}}</td>
                 <td class="align-middle">{{livraison.montantTotal}}</td>
                 <td class="align-middle">{{livraison.etat}}</td>
                 <td class="d-flex align-items-center justify-content-center gap-3">
-                    <button class="btn btn-details btn-hover" routerLink="/catalogue/panier/2">Détails</button>
-                    <button class="btn btn-annuler" >Valider</button>
+                    <button class="btn btn-details btn-hover" (click)="detailsLivraison(livraison)">Détails</button>
+                    <button class="btn btn-annuler" (click)="validerLivraison(livraison)" >Valider</button>
                 </td>
             </tr>
         </tbody>
     </table>
-    <!-- <pagination-controls
-          previousLabel="Prev"
-          nextLabel="Next"
-          (pageChange)="onTableDataChange($event)"
-        >
-        </pagination-controls> -->
-    <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
-    <!-- <app-itemtable-commande></app-itemtable-commande> -->
+
     </ng-container>

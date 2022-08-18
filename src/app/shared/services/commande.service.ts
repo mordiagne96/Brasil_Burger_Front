@@ -18,7 +18,7 @@ export class CommandeService {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`
-      })
+      }),
     }
     return this.http.put<any>(this.url_back + `updateEtat/${commande.id}/${etat}`, null, httpOptions)
   }
