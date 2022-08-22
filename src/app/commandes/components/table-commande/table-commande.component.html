@@ -29,7 +29,8 @@
             <td class="d-flex align-items-center justify-content-center gap-3">
                 <button class="btn btn-details btn-hover" routerLink="/catalogue/panier/2">Détails</button>
                 <!-- <button class="btn btn-details btn-hover" *ngIf="role == 'gestionnaire'" routerLink="/catalogue/panier/2">Valider</button> -->
-                <button class="btn btn-annuler" (click)="annulerCommande(commande)" [disabled]="commande.etat == 'valider' || commande.etat == 'annuler' ? true : false ">Annuler</button>
+                <button class="btn btn-succes" value="{{ commande.etat == 'en cours' ? 'terminer' :  commande.etat == 'terminer' && commande.zone == null ? 'valider':  commande.etat == 'en livraison' ? 'valider': 'inactif' }}" (click)="updateEtat(commande, $event)"  [disabled]="commande.etat == 'valider' || commande.etat == 'annuler' || commande.etat == 'terminer' && commande.zone != null ?  true : false ">{{ commande.etat == 'en cours' ? 'Terminer' :  commande.etat == 'terminer' && commande.zone == null ? 'Valider':  commande.etat == 'en livraison' ? 'Valider': 'Inactif' }}</button>
+                <button class="btn btn-annuler" (click)="annulerCommande(commande)"  [disabled]="commande.etat == 'valider' || commande.etat == 'annuler' ? true : false ">Annuler</button>
             </td>
         </tr>
     </tbody>

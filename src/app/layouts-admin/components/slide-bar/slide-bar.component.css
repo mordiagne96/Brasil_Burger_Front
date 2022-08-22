@@ -16,9 +16,12 @@
 .block-menu{
     padding:1vh;
 }
-
-.block-menu button{
+.active{
+    /* background-color:gray; */
     background-color:#FFB135;
+}
+.block-menu button{
+    background-color:white;
     height:7vh;
     width:100%;
     display:flex;
@@ -26,7 +29,13 @@
     justify-content:start;
     gap:3vh;
     font-size:2vh;
-    color:white;
-    
+    color:#FFB135;
+    border:1px solid #FFB135; 
+}
+
+.block-menu .active{
+    background-color:#FFB135;
+    color: white;
 
 }
+

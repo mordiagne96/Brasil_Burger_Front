@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { User } from '../../shared/models/user';
+import { SecuriteService } from 'src/app/shared/services/securite.service';
+
 
 @Component({
   selector: 'app-slide',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SlideComponent implements OnInit {
 
-  constructor() { }
+  @Input() user:User|null = null
+
+  constructor(private serviceSecurite: SecuriteService) { }
 
   ngOnInit(): void {
+    this.user = this.serviceSecurite.getUser()
   }
 
 }

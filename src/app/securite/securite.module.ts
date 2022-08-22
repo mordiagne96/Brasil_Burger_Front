@@ -10,6 +10,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegistreComponent } from './pages/registre/registre.component';
 import { HeadComponent } from './components/head/head.component';
 import { FootComponent } from './components/foot/foot.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { FootComponent } from './components/foot/foot.component';
   imports: [
     CommonModule,
     SecuriteRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class SecuriteModule { }

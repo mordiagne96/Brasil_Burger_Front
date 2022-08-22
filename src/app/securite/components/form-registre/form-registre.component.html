@@ -1,44 +1,67 @@
-<form class="form-login justify-content-center d-flex flex-column">
+<form  [formGroup]="formRegister" (ngSubmit)="onSubmit(formRegister)" class="form-login justify-content-center d-flex flex-column h-auto p-2">
     <div class="d-flex align-iems-center justify-content-center">
         <h3 class="text-4xl fw-bold">Inscription</h3>
     </div> 
     <div class="row">
-        <div class=" col-6 d-flex flex-column p-3">
+        <div class=" col-6 d-flex flex-column p-2">
             <label>Votre Nom:</label>
-            <input type="text" placeholder="Koni">
+            <input formControlName="nom" type="text" placeholder="Koni">
+            <small class="text-red-700" *ngIf="formRegister.get('nom')?.invalid && (formRegister.get('nom')?.dirty || formRegister.get('nom')?.touched)">
+                Entrer votre nom
+            </small>
         </div>
-        <div class="col-6 d-flex flex-column p-3">
+        <div class="col-6 d-flex flex-column p-2">
             <label>Votre Prénom</label>
-            <input type="text" placeholder="Rambo">
+            <input formControlName="prenom" type="text" placeholder="Rambo">
+            <small class="text-red-700" *ngIf="formRegister.get('prenom')?.invalid && (formRegister.get('prenom')?.dirty || formRegister.get('prenom')?.touched)"> 
+                Entrer votre prenom
+            </small>
         </div>
     </div> 
     <div class="row">
-        <div class=" col-6 d-flex flex-column p-3">
+        <div class=" col-6 d-flex flex-column p-2">
             <label>Votre Adresse</label>
-            <input type="text" placeholder="pambal">
+            <input formControlName="adresse" type="text" placeholder="pambal">
+            <small class="text-red-700" *ngIf="formRegister.get('adresse')?.invalid && (formRegister.get('adresse')?.dirty || formRegister.get('adresse')?.touched)"> 
+               Entrer votre adresse
+            </small>
         </div>
-        <div class="col-6 d-flex flex-column p-3">
+        <div class="col-6 d-flex flex-column p-2">
             <label>Votre Téléphone</label>
-            <input type="text" placeholder="77 777 77 77">
+            <input formControlName="telephone" type="text" (keyup)="validNumeroTelephone($event)" placeholder="77 777 77 77">
+            <small class="text-red-700" *ngIf="formRegister.get('telephone')?.invalid && (formRegister.get('telephone')?.dirty || formRegister.get('telephone')?.touched)"> 
+                Numero Incorrecte (Ex: 78433XXXX)
+            </small>
         </div>
     </div> 
     <div class="row">
-        <div class=" col-6 d-flex flex-column p-3">
+        <div class=" col-6 d-flex flex-column p-2">
             <label>Votre Email</label>
-            <input type="email" placeholder="monemail@gmail.com">
+            <input formControlName="login" type="email" placeholder="monemail@gmail.com">
+            <small class="text-red-700" *ngIf="formRegister.get('login')?.invalid && (formRegister.get('login')?.dirty || formRegister.get('login')?.touched)"> 
+                Entrer votre email (Ex: exemple@gmail.com)
+            </small>
         </div>
-        <div class="col-6 d-flex flex-column p-3">
+        <div class="col-6 d-flex flex-column p-2">
             <label>Votre Password</label>
-            <input type="password" placeholder="***********">
+            <input formControlName="password" type="password" placeholder="***********">
+            <small class="text-red-700" *ngIf="formRegister.get('password')?.invalid && (formRegister.get('password')?.dirty || formRegister.get('password')?.touched)"> 
+                Password incorrecte (minimum 6 caractère, des chiffres et des lettres)
+            </small>
         </div>
     </div>
     <div class="row">
-        <div class=" col-6 d-flex flex-column p-3">
+        <div class=" col-6 d-flex flex-column p-2">
             <label>Confirme Password</label>
-            <input type="password" placeholder="*********">
+            <input (keyup)="validPassword($event)" formControlName="confirmPassword" type="password" placeholder="*********">
+            <small class="text-red-700" *ngIf="formRegister.get('confirmePassword')?.invalid && (formRegister.get('confirmePassword')?.dirty || formRegister.get('confirmePassword')?.touched) || passwordValid == false"> 
+                Les mots passes ne sont pas identique
+            </small>
         </div>
     </div>
     <div class="d-flex align-iems-center justify-content-center p-3">
-        <button type="submit" class="btn-connecter" routerLink="/securite/login">S'Insrire</button>
+        <button type="submit" class="btn-connecter">S'Insrire</button>
     </div> 
+    <span class="w-full text-center">J'ai déja un compte <a [routerLink]="['/securite/login']" routerLinkActive="router-link-active"  class="fw-bold text-blue-600">Se connecter</a> </span>
+
 </form>

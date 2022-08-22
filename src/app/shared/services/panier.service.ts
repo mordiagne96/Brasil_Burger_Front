@@ -92,7 +92,7 @@ export class PanierService {
       if(this.burgers.length > 0){
         this.burgers.map((burger,index)=>{
           if(burger.burger?.id == id){
-              total = burger.quantite * burger.burger.prix
+              total = burger.quantite * Number(burger.burger.prix) as number
               this.burgers.splice(index,1)
           }
         })
@@ -148,7 +148,7 @@ export class PanierService {
     if(this.burgers.length > 0){
         this.burgers.map(
             (data)=>{
-              total += (data.burger?.prix * data.quantite)
+              total += (Number(data.burger?.prix) * data.quantite)
             }
         )
     }

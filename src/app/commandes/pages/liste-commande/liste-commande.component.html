@@ -1,30 +1,18 @@
 <ng-container *ngIf="(zoneDto|async) as zone">
+    <app-header></app-header>
 <div class="content d-flex">
-    <!-- <app-slide-bar></app-slide-bar>
-    <app-header-smd></app-header-smd> -->
     <div class="col-2 block-1 bg-gray-100 h-full">
         <app-slide-bar></app-slide-bar>
     </div>
-<!-- {{commandes[0]|json}} -->
-
     <div class="col-10 block-2 bg-gray-200 d-flex flex-column">
-        <app-header></app-header>
         <div class="block-2-content bg-white d-flex flex-column align-items-center gap-10 pt-5">
             <div class="block-titre d-flex align-items-center justify-content-center text-2xl text-white fw-bold ">
                 <span>Liste Commandes</span>
             </div>
-            <!-- {{zoneDto|async|json}} -->
-            <app-items-filtre (filterEmitter)="filterEmitter($event)" [zones]="zone.zones" (filterDateEmitter)="filterDateEmitter($event)"  (filterPrenomEmitter)="filterPrenomEmitter($event)" (filterZoneEmitter)="filterZoneCommande($event)"></app-items-filtre>
-            <!-- <thead>
-                <tr class="head">
-                    <th><div>Numéro</div></th>
-                    <th><div>Date</div></th>
-                    <th><div>Montant</div></th>
-                    <th><div>Etat</div></th>
-                    <th><div>Action</div></th>
-                </tr>
-            </thead> -->
-            <app-table-commande [commandes]="commandes" [role]="role"  [filterEtat]="filterEtat" [filterDate]="filterDate" [filterPrenom]="filterPrenom" [filterZone]="filterZone"></app-table-commande>
+            <ng-container *ngIf="commandes.length != 0">
+                    <app-items-filtre (filterEmitter)="filterEmitter($event)" [zones]="zone.zones" (filterDateEmitter)="filterDateEmitter($event)"  (filterPrenomEmitter)="filterPrenomEmitter($event)" (filterZoneEmitter)="filterZoneCommande($event)"></app-items-filtre>
+                    <app-table-commande [commandes]="commandes" [role]="role"  [filterEtat]="filterEtat" [filterDate]="filterDate" [filterPrenom]="filterPrenom" [filterZone]="filterZone"></app-table-commande>
+            </ng-container>
         </div>
     </div>
 </div>

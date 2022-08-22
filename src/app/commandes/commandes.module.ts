@@ -21,6 +21,7 @@ import { CardCheckLivraisonComponent } from './components/card-check-livraison/c
 import { FilterTypeCommandePipe } from './filter-type-commande.pipe';
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { TableLivraisonComponent } from './components/table-livraison/table-livraison.component';
+import { FilterLivraisonEtatPipe } from './filter-livraison-etat.pipe';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { TableLivraisonComponent } from './components/table-livraison/table-livr
     AddLivraisonComponent,
     CardCheckLivraisonComponent,
     FilterTypeCommandePipe,
-    TableLivraisonComponent
+    TableLivraisonComponent,
+    FilterLivraisonEtatPipe
   ],
   imports: [
     CommonModule,

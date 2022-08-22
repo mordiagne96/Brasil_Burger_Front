@@ -30,6 +30,7 @@ export class AddLivraisonComponent implements OnInit {
   livreurs:any[]=[]
   option:string="liste"
   livraisons:Livraison[]=[]
+  filterEtatLivraison = "en cours"
   constructor(private service: CatalogueService,private serviceLivraison:LivraisonService, private jwtService: JwtHelperService, private securiteService:SecuriteService, private zoneService:PanierService) { }
 
   ngOnInit(): void {
@@ -75,6 +76,10 @@ export class AddLivraisonComponent implements OnInit {
   }
   filterZoneCommande(zone:string){
     this.filterZone = zone
+  }
+
+  filterLivraison(etat:string){
+      this.filterEtatLivraison = etat
   }
 
   addLivraison(){

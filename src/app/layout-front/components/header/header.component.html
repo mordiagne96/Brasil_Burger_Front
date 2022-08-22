@@ -10,11 +10,11 @@
          </div>
          <div class="block-user d-flex align-items-center gap-2">
             <img src="././././assets/images/user.jpg" class="logo" alt="">
-            <span class="text-xl">Moustapha Koni</span>
+            <span class="text-xl">{{user?.prenom}} {{user?.nom}}</span>
          </div>
          <div class="block-logout d-flex align-items-center justify-content-between pl-10 pr-10">
             <app-panier-logo [nbre]="nbre"></app-panier-logo>
-            <button class="text-xl fw-bold text-white" (click)="deconnexion()">Déconnexion</button>
+            <button class="text-xl fw-bold text-white" (click)="deconnexion()" *ngIf="user != null">Déconnexion</button>
          </div>
     </div>
 </nav>

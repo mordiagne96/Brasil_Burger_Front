@@ -11,17 +11,19 @@ import { CatalogueService } from '../../../produits/shared/service/catalogue.ser
 import { SecuriteService } from '../../../shared/services/securite.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { formatDate } from '@angular/common';
+
 @Component({
   selector: 'app-liste-commande',
   templateUrl: './liste-commande.component.html',
   styleUrls: ['./liste-commande.component.css']
 })
+
 export class ListeCommandeComponent implements OnInit {
   commandes$ : Observable<CommandeClient> | null = null;
   token:string|null=null;
   commandes:Commande[]=[]
   filterEtat : string = ''
-  filterDate : string = ''
+  filterDate : string = formatDate(new Date(),"yyyy-MM-dd", 'en-US')
   filterPrenom : string = ''
   filterZone : string = ''
   zoneDto:Observable<ZoneDto> | null =null
@@ -52,15 +54,17 @@ export class ListeCommandeComponent implements OnInit {
         this.service.getAllCommandes(this.token).subscribe(data=>{
             // console.log(data)
             this.commandes = data['hydra:member'].reverse()
-            this.commandes.map(
-              data=>{
-                data.date = formatDate(data.date as string,"dd/MM/yyyy", 'en-US')
-                // data.date = new Date()
-                // let now = new Date()
-                // data.date = formatDate(now ,"dd/MM/yyyy", 'en-US')
+            console.log(this.commandes);
+            
+            // this.commandes.map(
+            //   data=>{
+            //     data.date = formatDate(data.date as string,"dd/MM/yyyy", 'en-US')
+            //     // data.date = new Date()
+            //     // let now = new Date()
+            //     // data.date = formatDate(now ,"dd/MM/yyyy", 'en-US')
                 
-              }
-            )
+            //   }
+            // )
         })
 
       }

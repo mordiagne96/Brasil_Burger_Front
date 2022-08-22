@@ -15,7 +15,7 @@ export class CardBoissonComponent implements OnInit {
 
   @Input() boisson:Produit|null=null
   @Input() taille:Taille|null=null
-  @Input() tailleId:number|null=null
+  @Input() tailleId:number|undefined=0
   @Input() check:boolean=false
   @Input() qteCheck:number|null=null
   @Output() choixBoisson:EventEmitter<any>= new EventEmitter()

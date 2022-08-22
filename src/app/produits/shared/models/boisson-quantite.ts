@@ -1,4 +1,4 @@
 export interface BoissonQuantite {
-    boissonId:number
+    boissonId?:number
     quantite:number
 }

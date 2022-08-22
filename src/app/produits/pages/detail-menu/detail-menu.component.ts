@@ -37,7 +37,7 @@ export class DetailMenuComponent implements OnInit {
   taille:Taille|null=null
   tailleBoissons:TailleBoisson[]=[]
   tailleBoissonsCopie:TailleBoisson[]=[]
-  tailleId: number|null=null;
+  tailleId: number|undefined;
   choixBoissons: BoissonCheck|null=null
   id:number=0;
   tailleBoissonCheck:TailleBoissonCheck[]=[]

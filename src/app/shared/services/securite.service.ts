@@ -22,6 +22,10 @@ export class SecuriteService {
       password
     }, httpOptions);
   }
+  
+  registre(client:any): Observable<any> {
+    return this.http.post(this.url_back + 'addClient', client, httpOptions);
+  }
 
   isConnect(){
     if(this.getToken() == null){
@@ -43,9 +47,14 @@ export class SecuriteService {
     return window.sessionStorage.getItem(TOKEN_KEY);
   }
 
-  public saveUser(user: any): void {
-    window.sessionStorage.removeItem(USER_KEY);
-    window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
+  public saveUser(email: string): void {
+    this.getUserByLogin(email).subscribe({
+      next: data =>{
+          window.sessionStorage.removeItem(USER_KEY);
+          window.sessionStorage.setItem(USER_KEY, JSON.stringify(data));
+      }
+    }
+    )
   }
 
   public getUser(): any {
@@ -53,7 +62,7 @@ export class SecuriteService {
     if (user) {
       return JSON.parse(user);
     }
-    return {};
+    return null;
   }
 
   public getRole(){
@@ -66,4 +75,11 @@ export class SecuriteService {
     return 'ROLE_VISITEUR'
   }
 
+  decodeToken(){
+    return this.serviceJwt.decodeToken(this.getToken() as string)
+  }
+
+  getUserByLogin(email:string):Observable<any>{
+    return this.http.get(this.url_back + `user-connect/1/${email}`, httpOptions);
+  }
 }

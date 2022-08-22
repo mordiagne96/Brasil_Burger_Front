@@ -7,9 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistreComponent implements OnInit {
 
+  show: boolean = false
+
   constructor() { }
 
+
   ngOnInit(): void {
+  }
+
+  showAlert(data:any){
+   if(data == true){
+      this.show = true
+      setTimeout(()=>{
+        this.show =false
+      }, 5000)
+   }else{
+    this.show = false
+   }
   }
 
 }

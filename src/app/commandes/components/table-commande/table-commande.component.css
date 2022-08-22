@@ -18,6 +18,7 @@ table{
 
 .btn{
     border-radius:1.5vh;
+    /* width:15vh */
 }
 
 .btn-details{
@@ -42,4 +43,18 @@ table{
 
 .btn-annuler:disabled{
     background-color:rgb(228, 211, 211);
+}
+
+.btn-succes{
+    border:0.3vh solid green;
+    color:green;
+}
+
+.btn-succes:hover{
+    background-color:green;
+    color:white;
+}
+
+.btn-succes:disabled{
+    background-color:rgb(173, 185, 173)
 }

@@ -13,7 +13,7 @@ export class ItemsFiltreComponent implements OnInit {
 
   constructor(private service:CatalogueService, private securiteService:SecuriteService, private jwtService: JwtHelperService) { }
   filterEtat:string ='en cours'
-  filterDate:string =''
+  filterDate:string =formatDate(new Date(),"yyyy-MM-dd", 'en-US')
   filterPrenom:string =''
   filterZone:string =''
   @Output() filterEmitter:EventEmitter<string> = new EventEmitter();
@@ -28,6 +28,7 @@ export class ItemsFiltreComponent implements OnInit {
       if(this.jwtService.decodeToken(this.token as string).roles.includes('ROLE_GESTIONNAIRE')){
         this.filterEmitter.emit(this.filterEtat)
       }
+
   }
 
   filtreCommande(event:any){
@@ -42,6 +43,7 @@ export class ItemsFiltreComponent implements OnInit {
   }
 
   filterDateCommande(date:any){
+    // alert(formatDate(new Date(),"dd/MM/yyyy", 'en-US'))
     // alert(date)
     if(date == ""){
       this.filterDateEmitter.emit("")

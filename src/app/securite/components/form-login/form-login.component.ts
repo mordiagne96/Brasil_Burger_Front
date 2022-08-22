@@ -31,7 +31,8 @@ export class FormLoginComponent implements OnInit {
     this.securiteService.login(form.login, form.password).subscribe({
       next: data => {
         this.securiteService.saveToken(data.token);
-        this.securiteService.saveUser(data);
+        this.securiteService.saveUser(this.securiteService.decodeToken().username);
+        
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         if(window.sessionStorage.getItem("commande")!=null){
@@ -53,10 +54,12 @@ export class FormLoginComponent implements OnInit {
           // console.log(this.jwtService.decodeToken(data.token).username)
           if(this.securiteService.getRole() == "ROLE_GESTIONNAIRE"){
               this.router.navigate(['/commandes/liste-commandes'])
+
           }else{
               this.router.navigate(['/catalogue'])
           }
           Swal.fire('Hi', 'Connexion reussie!', 'success');
+          
         }
         
       },

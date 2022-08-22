@@ -11,9 +11,14 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class TableLivraisonComponent implements OnInit {
 
   @Input() livraisons:Livraison[]=[]
+  @Input() filterEtatLivraison:string="en cours"
   @Output() showDetailEvent: EventEmitter<Livraison> = new EventEmitter();
   token: string|null=""
   success:boolean = false
+  page: number = 1;
+  count: number = 0;
+  tableSize: number = 5;
+
   constructor(private serviceSecurite:SecuriteService, private serviceLivraison:LivraisonService) { }
 
   ngOnInit(): void {
@@ -43,5 +48,11 @@ export class TableLivraisonComponent implements OnInit {
 
   detailsLivraison(livraison:Livraison){
     this.showDetailEvent.emit(livraison)
+  }
+
+
+  onTableDataChange(event: any) {
+    this.page = event;
+    // this.fetchPosts();
   }
 }

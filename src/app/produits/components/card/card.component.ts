@@ -17,7 +17,7 @@ export class CardComponent implements OnInit {
   @Input('show-menu') show_btn_Add_menu : Boolean =false;
   @Input('catalogue_burger') burger : Produit|null = null;
 
-  @Input() idBurger:number=0;
+  @Input() idBurger:number|undefined=0;
   @Output() id:number|null=null;
   @Input() detailProduit:Produit|null=null;
 

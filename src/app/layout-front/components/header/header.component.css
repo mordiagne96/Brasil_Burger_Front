@@ -41,6 +41,7 @@ background: linear-gradient(322deg, rgba(242,246,246,0.8071603641456583) 0%, rgb
 .div-nav{
     width:100%;
     height:8vh;
+    padding-left:2%;
 }
 
 .block-img{

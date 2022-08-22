@@ -13,7 +13,12 @@
             </tr>
         </thead>
         <tbody>
-            <tr class="" *ngFor="let livraison of livraisons">
+            <tr class="" *ngFor="let livraison of livraisons |filterLivraisonEtat:filterEtatLivraison | paginate : {
+                itemsPerPage: tableSize,
+                currentPage: page,
+                totalItems: count
+                };
+                let i = index  ">
                 <td class="align-middle">{{livraison.date}}</td>
                 <td class="align-middle">{{livraison.montantTotal}}</td>
                 <td class="align-middle">{{livraison.etat}}</td>
@@ -24,5 +29,6 @@
             </tr>
         </tbody>
     </table>
-
+    <pagination-controls previousLabel="Précédent" nextLabel="Suivant" (pageChange)="onTableDataChange($event)">
+  </pagination-controls>
     </ng-container>

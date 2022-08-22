@@ -4,7 +4,9 @@ import { SecuriteService } from 'src/app/shared/services/securite.service';
 import { NotifierService } from 'angular-notifier';
 import { NgxBootstrapConfirmService } from 'ngx-bootstrap-confirm';
 import {Router} from "@angular/router";
+import { JwtHelperService } from '@auth0/angular-jwt';
 import Swal from 'sweetalert2';
+import { User } from 'src/app/produits/shared/models/user';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -12,17 +14,14 @@ import Swal from 'sweetalert2';
 })
 export class HeaderComponent implements OnInit {
   @Input() nbre:number=0
-  constructor(private router: Router,private servicePanier:PanierService, private securiteService:SecuriteService,private notifier: NotifierService,private notifierConfirme:NgxBootstrapConfirmService) {
-  //   servicePanier.shareNombre.subscribe(
-  //     data=>{
-  //       this.nbre = data
-  //     }
-  // )
-  // this.nbre = nbre
-
+  user: User|null = null
+  constructor(private router: Router,private servicePanier:PanierService, private securiteService:SecuriteService,private notifier: NotifierService,private notifierConfirme:NgxBootstrapConfirmService, private jwtService : JwtHelperService) {
   }
-  ngOnInit(): void {
 
+  ngOnInit(): void {
+      this.user = this.securiteService.getUser();
+      console.log(this.user);
+      
   }
   deconnexion(){
     Swal.fire({

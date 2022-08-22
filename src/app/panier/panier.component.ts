@@ -129,6 +129,7 @@ export class PanierComponent implements OnInit {
                 if(commande.zone == null){
                   Swal.fire('Annulé', 'Selectionner une zone de Livraison', 'error');
                 }else{
+                  console.log(commande);
                   this.addCommande = this.servicePanier.addCommande(commande, this.token)
                   this.addCommande?.subscribe(
                     (data) => {
@@ -176,13 +177,11 @@ export class PanierComponent implements OnInit {
                 bq=>{
                   let mctb: MenuCommandeTailleBoisson={
                       taille:{
-                          id:tbc?.idTaille,
-                          prix:0,libelle:"",tailleBoissons:[]
+                          id:tbc?.idTaille,tailleBoissons:[]
                       },
                       quantite:bq.quantite,
                       boisson:{
-                        id: bq.boissonId,
-                        nom:"",prix:0,image:"",imageReelle:""
+                        id: bq.boissonId
                       }
                   }
                   menuCom.tailleBoissons.push(mctb)

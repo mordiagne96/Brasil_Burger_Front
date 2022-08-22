@@ -42,13 +42,6 @@ export class CatalogueService {
       data=>{
         
           this.commandes =  data.commandes.reverse()
-
-          this.commandes.map(
-              data=>{
-                  data.date = formatDate(data.date as string,"dd-MM-yyyy", 'en-US')
-              }
-          )
-
           this.commandesSource= data.commandes.reverse()
           this.commandeSubject.next(this.commandes)
       }

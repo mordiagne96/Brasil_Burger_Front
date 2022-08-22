@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule } from  '@angular/forms';
+import { FormsModule } from  '@angular/forms';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -26,7 +26,6 @@ import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
     NgxBootstrapConfirmModule,
     FormsModule,
     NotifierModule,
-    ReactiveFormsModule,
   
     
   ],
